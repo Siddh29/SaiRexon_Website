@@ -133,32 +133,32 @@ a {
 
 .glow-spot-1 {
   position: absolute;
-  top: 10%;
-  right: 15%;
-  width: 45vw;
-  height: 45vw;
-  background: radial-gradient(circle, rgba(var(--secondary-rgb), 0.15) 0%, transparent 70%);
+  top: -30%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(ellipse at center, rgba(91, 33, 182, 0.22) 0%, transparent 70%);
   filter: blur(120px);
 }
 
 .glow-spot-2 {
   position: absolute;
-  bottom: 15%;
-  left: 5%;
-  width: 50vw;
-  height: 50vw;
-  background: radial-gradient(circle, rgba(var(--primary-rgb), 0.05) 0%, transparent 70%);
-  filter: blur(130px);
+  top: 20%;
+  right: -10%;
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(ellipse at center, rgba(221, 125, 98, 0.12) 0%, transparent 70%);
+  filter: blur(120px);
 }
 
 .glow-spot-3 {
   position: absolute;
-  top: 50%;
-  left: 40%;
-  width: 35vw;
-  height: 35vw;
-  background: radial-gradient(circle, rgba(var(--accent-rgb), 0.06) 0%, transparent 75%);
-  filter: blur(100px);
+  bottom: -15%;
+  left: -10%;
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(ellipse at center, rgba(197, 168, 128, 0.18) 0%, transparent 70%);
+  filter: blur(120px);
 }
 
 /* 5. Pure Paper Panels & Containers */
@@ -506,5 +506,9 @@ a {
 
 .glow-spot-2 {
   animation: driftGlow2 28s infinite alternate ease-in-out;
+}
+
+.glow-spot-3 {
+  animation: driftGlow1 26s infinite alternate-reverse ease-in-out;
 }
 
