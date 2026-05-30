@@ -8,10 +8,10 @@
   --font-body: 'Inter', sans-serif;
   --font-badge: 'Outfit', sans-serif;
 
-  /* Color Palette - Cool Slate Greyish Light Theme (Luxury Editorial) */
-  --bg-deep: hsl(210, 20%, 91%);           /* Premium Rich Slate Greyish Off-White */
+  /* Color Palette - Elegant Warm Alabaster Cream Theme (Luxury Editorial) */
+  --bg-deep: hsl(38, 40%, 96%);            /* Warm Alabaster Cream / Beige */
   --bg-card: hsl(0, 0%, 100%);             /* Pure Paper White */
-  --bg-card-hover: hsl(210, 16%, 87%);
+  --bg-card-hover: hsl(38, 30%, 92%);      /* Soft Warm Cream */
   
   --primary: hsl(263, 69%, 42%);          /* Luxurious Deep Violet */
   --primary-rgb: 91, 33, 182;
@@ -20,9 +20,9 @@
   --accent: hsl(14, 60%, 63%);            /* Soft Warm Terracotta */
   --accent-rgb: 221, 125, 98;
 
-  --text-bright: hsl(222, 47%, 11%);      /* Velvet Deep Charcoal */
-  --text-normal: hsl(215, 16%, 28%);      /* Slate Grey */
-  --text-muted: hsl(215, 16%, 48%);       /* Soft Muted Grey */
+  --text-bright: hsl(20, 15%, 11%);      /* Velvet Deep Charcoal */
+  --text-normal: hsl(20, 10%, 28%);      /* Warm Slate Grey */
+  --text-muted: hsl(20, 8%, 48%);       /* Warm Muted Grey */
 
   /* UI Tokens */
   --border-glass: rgba(15, 23, 42, 0.06);
@@ -64,7 +64,7 @@ body {
   overflow-x: hidden;
   line-height: 1.65;
   letter-spacing: -0.01em;
-  background: radial-gradient(circle at 50% 0%, hsl(210, 20%, 95%) 0%, var(--bg-deep) 100%);
+  background: radial-gradient(circle at 50% 0%, hsl(38, 40%, 98%) 0%, var(--bg-deep) 100%);
 }
 
 /* Custom Scrollbar */
@@ -114,8 +114,8 @@ a {
   height: 100%;
   background-size: 80px 80px;
   background-image: 
-    linear-gradient(to right, rgba(91, 33, 182, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(91, 33, 182, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(197, 168, 128, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(197, 168, 128, 0.08) 1px, transparent 1px);
   z-index: -2;
   pointer-events: none;
 }
@@ -137,7 +137,7 @@ a {
   left: 5%;
   width: 90%;
   height: 90%;
-  background: radial-gradient(ellipse at center, rgba(91, 33, 182, 0.35) 0%, transparent 70%);
+  background: radial-gradient(ellipse at center, rgba(91, 33, 182, 0.06) 0%, transparent 70%);
   filter: blur(140px);
 }
 
