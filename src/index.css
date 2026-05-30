@@ -9,9 +9,9 @@
   --font-badge: 'Outfit', sans-serif;
 
   /* Color Palette - Cool Slate Greyish Light Theme (Luxury Editorial) */
-  --bg-deep: hsl(210, 24%, 93%);           /* Premium Rich Slate Greyish Off-White */
+  --bg-deep: hsl(210, 20%, 91%);           /* Premium Rich Slate Greyish Off-White */
   --bg-card: hsl(0, 0%, 100%);             /* Pure Paper White */
-  --bg-card-hover: hsl(210, 20%, 89%);
+  --bg-card-hover: hsl(210, 16%, 87%);
   
   --primary: hsl(263, 69%, 42%);          /* Luxurious Deep Violet */
   --primary-rgb: 91, 33, 182;
@@ -64,7 +64,7 @@ body {
   overflow-x: hidden;
   line-height: 1.65;
   letter-spacing: -0.01em;
-  background: radial-gradient(circle at 50% 0%, hsl(210, 24%, 97%) 0%, var(--bg-deep) 100%);
+  background: radial-gradient(circle at 50% 0%, hsl(210, 20%, 95%) 0%, var(--bg-deep) 100%);
 }
 
 /* Custom Scrollbar */
@@ -114,8 +114,8 @@ a {
   height: 100%;
   background-size: 80px 80px;
   background-image: 
-    linear-gradient(to right, rgba(15, 23, 42, 0.015) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(15, 23, 42, 0.015) 1px, transparent 1px);
+    linear-gradient(to right, rgba(91, 33, 182, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(91, 33, 182, 0.04) 1px, transparent 1px);
   z-index: -2;
   pointer-events: none;
 }
@@ -133,32 +133,32 @@ a {
 
 .glow-spot-1 {
   position: absolute;
-  top: -30%;
-  left: 10%;
-  width: 80%;
-  height: 80%;
-  background: radial-gradient(ellipse at center, rgba(91, 33, 182, 0.22) 0%, transparent 70%);
-  filter: blur(120px);
+  top: -35%;
+  left: 5%;
+  width: 90%;
+  height: 90%;
+  background: radial-gradient(ellipse at center, rgba(91, 33, 182, 0.35) 0%, transparent 70%);
+  filter: blur(140px);
 }
 
 .glow-spot-2 {
   position: absolute;
-  top: 20%;
-  right: -10%;
-  width: 60%;
-  height: 60%;
-  background: radial-gradient(ellipse at center, rgba(221, 125, 98, 0.12) 0%, transparent 70%);
-  filter: blur(120px);
+  top: 15%;
+  right: -15%;
+  width: 70%;
+  height: 70%;
+  background: radial-gradient(ellipse at center, rgba(221, 125, 98, 0.22) 0%, transparent 70%);
+  filter: blur(140px);
 }
 
 .glow-spot-3 {
   position: absolute;
-  bottom: -15%;
-  left: -10%;
-  width: 60%;
-  height: 60%;
-  background: radial-gradient(ellipse at center, rgba(197, 168, 128, 0.18) 0%, transparent 70%);
-  filter: blur(120px);
+  bottom: -20%;
+  left: -15%;
+  width: 70%;
+  height: 70%;
+  background: radial-gradient(ellipse at center, rgba(197, 168, 128, 0.28) 0%, transparent 70%);
+  filter: blur(140px);
 }
 
 /* 5. Pure Paper Panels & Containers */
