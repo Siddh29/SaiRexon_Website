@@ -231,16 +231,14 @@ const Home = ({ setCurrentPage }) => {
               <div className="pillar"><span className="pillar-dot"></span> End-to-End Managed Engineering</div>
             </div>
           </div>
-          <div className="vision-globe glass-panel flex-center glowing-orange animate-float">
-            <div className="globe-graphic">
-              <svg viewBox="0 0 100 100" width="100" height="100">
-                <circle cx="50" cy="50" r="40" stroke="var(--secondary)" strokeWidth="1" fill="none" opacity="0.3" />
-                <circle cx="50" cy="50" r="30" stroke="var(--primary)" strokeWidth="1" fill="none" opacity="0.4" />
-                <ellipse cx="50" cy="50" rx="40" ry="12" stroke="var(--primary)" strokeWidth="1.5" fill="none" />
-                <ellipse cx="50" cy="50" rx="12" ry="40" stroke="var(--secondary)" strokeWidth="1.5" fill="none" />
-                <circle cx="50" cy="50" r="8" fill="var(--primary)" />
-              </svg>
-              <h4>Futuristic Indian Infrastructure</h4>
+          <div className="vision-globe glass-panel flex-center glowing-purple animate-float" style={{ padding: '0', overflow: 'hidden', border: '1px solid var(--border-glass)' }}>
+            <div className="vision-image-wrapper" style={{ width: '100%', height: '100%', position: 'relative' }}>
+              <img src="/assets/images/futuristic_indian_infrastructure.png" alt="Futuristic Indian Infrastructure" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)' }} className="vision-img" />
+              <div className="vision-overlay" style={{ position: 'absolute', bottom: '0', left: '0', right: '0', background: 'linear-gradient(to top, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.4) 60%, transparent 100%)', padding: '24px', textAlign: 'left' }}>
+                <span className="badge cyan" style={{ marginBottom: '8px', fontSize: '0.68rem', display: 'inline-block' }}>Next-Gen Tech Grid</span>
+                <h4 style={{ margin: '0', color: '#ffffff', fontSize: '1.25rem', fontFamily: 'var(--font-heading)', fontWeight: '700', letterSpacing: '-0.02em', textTransform: 'none' }}>Futuristic Indian Infrastructure</h4>
+                <p style={{ margin: '8px 0 0 0', color: '#CBD5E1', fontSize: '0.82rem', lineHeight: '1.4' }}>Deploying secure AI, SaaS pipelines, and digital node fabrics to Tier-2 and Tier-3 growing hubs.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -755,21 +753,12 @@ const Home = ({ setCurrentPage }) => {
           text-align: center;
           flex-direction: column;
           background: #ffffff;
+          position: relative;
+          cursor: pointer;
         }
 
-        .globe-graphic {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 20px;
-        }
-
-        .globe-graphic h4 {
-          font-family: var(--font-badge);
-          font-size: 1rem;
-          letter-spacing: 0.05em;
-          text-transform: uppercase;
-          color: var(--text-bright);
+        .vision-globe:hover .vision-img {
+          transform: scale(1.04);
         }
 
         /* Pilot section */
