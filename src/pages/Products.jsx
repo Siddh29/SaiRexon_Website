@@ -108,11 +108,11 @@ const Products = () => {
               <div className="vital"><span className="lbl">Demand Forecast</span><span className="val">+38% peak</span></div>
             </div>
             <div className="animated-bars">
-              <div className="col"><div className="bar" style={{height: '30%'}} /></div>
-              <div className="col"><div className="bar highlight" style={{height: '80%'}} /></div>
-              <div className="col"><div className="bar" style={{height: '50%'}} /></div>
+              <div className="col"><div className="bar" style={{height: '60px'}} /></div>
+              <div className="col"><div className="bar highlight" style={{height: '80px'}} /></div>
+              <div className="col"><div className="bar" style={{height: '50px'}} /></div>
             </div>
-            <p className="prediction-note">Suggested Dispatch: Send 40 stock packets of Organic Berries to Sector 4 Hub immediately.</p>
+            <p className="prediction-note">Suggested Dispatch: Send 40 packets to Sector 4 Hub immediately.</p>
           </div>
         </div>
       )
@@ -144,12 +144,11 @@ Auth: Bearer rex_live_948f
 
 {
   "system": "legacy_db_02",
-  "engine": "semantic-vector-v2",
-  "tasks": ["extract_skills", "rank_nodes"]
+  "engine": "semantic-vector-v2"
 }
 
 >> Response 200 OK (38ms)
->> Status: Modernization Node Complete`}
+>> Status: Modernization Active`}
             </code></pre>
           </div>
         </div>
@@ -180,7 +179,7 @@ Auth: Bearer rex_live_948f
         </div>
       </section>
 
-      {/* Interactive Sandbox Section (Wow Factor #1) */}
+      {/* Interactive Sandbox Section */}
       <section className="section-padding sandbox-wrapper-section">
         <div className="sandbox-inner">
           <InteractiveDashboard />
@@ -230,7 +229,7 @@ Auth: Bearer rex_live_948f
               <button onClick={() => setInquiryProduct(productData[selectedCategory].title)} className="btn-primary">
                 Request Product Demo
               </button>
-              <button onClick={() => setInquiryProduct(productData[selectedCategory].title)} className="btn-secondary">
+              <button onClick={() => setInquiryProduct(productData[selectedCategory].title)} className="btn-accent">
                 Pricing & License Inquiry
               </button>
             </div>
@@ -308,7 +307,7 @@ Auth: Bearer rex_live_948f
                     placeholder="E.g., Number of licenses, integration timeline..."
                   />
                 </div>
-                <button type="submit" className="btn-accent w-100">Submit License Request</button>
+                <button type="submit" className="btn-primary w-100" style={{ marginTop: '10px' }}>Submit License Request</button>
               </form>
             )}
           </div>
@@ -317,11 +316,11 @@ Auth: Bearer rex_live_948f
 
       <style>{`
         .products-header {
-          min-height: 65vh;
+          min-height: 60vh;
           text-align: center;
           padding: 0 10%;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-          background: radial-gradient(circle at 50% 30%, rgba(var(--secondary-rgb), 0.05) 0%, transparent 60%);
+          border-bottom: 1px solid var(--border-glass);
+          background: radial-gradient(circle at 50% 30%, rgba(var(--secondary-rgb), 0.08) 0%, transparent 60%);
         }
 
         .header-text {
@@ -362,22 +361,24 @@ Auth: Bearer rex_live_948f
 
         .cat-tab-btn {
           padding: 14px 28px;
-          background: rgba(255, 255, 255, 0.01);
+          background: #ffffff;
           border: 1px solid var(--border-glass);
           color: var(--text-normal);
-          font-family: var(--font-header);
+          font-family: var(--font-badge);
           font-weight: 600;
-          font-size: 1rem;
+          font-size: 0.9rem;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
           border-radius: var(--radius-sm);
           cursor: pointer;
           transition: var(--transition-smooth);
+          box-shadow: var(--shadow-premium);
         }
 
         .cat-tab-btn:hover, .cat-tab-btn.active {
           border-color: var(--primary);
           color: var(--primary);
-          background: rgba(0, 240, 255, 0.04);
-          box-shadow: 0 0 12px rgba(0, 240, 255, 0.1);
+          background: rgba(91, 33, 182, 0.03);
         }
 
         /* Categories Detail Box */
@@ -388,20 +389,21 @@ Auth: Bearer rex_live_948f
           padding: 50px;
           max-width: 1000px;
           margin: 0 auto 60px auto;
+          background: #ffffff;
         }
 
         .product-badge {
           display: inline-block;
-          padding: 6px 14px;
-          border-radius: 50px;
-          background: rgba(0, 240, 255, 0.08);
-          border: 1px solid rgba(0, 240, 255, 0.2);
+          padding: 4px 12px;
+          border-radius: 4px;
+          background: rgba(91, 33, 182, 0.05);
+          border: 1px solid rgba(91, 33, 182, 0.12);
           color: var(--primary);
-          font-family: var(--font-header);
+          font-family: var(--font-badge);
           font-weight: 600;
-          font-size: 0.8rem;
+          font-size: 0.75rem;
           text-transform: uppercase;
-          letter-spacing: 0.5px;
+          letter-spacing: 0.05em;
           margin-bottom: 16px;
         }
 
@@ -423,10 +425,12 @@ Auth: Bearer rex_live_948f
         }
 
         .product-benefits h4 {
-          font-size: 0.95rem;
+          font-family: var(--font-badge);
+          font-weight: 700;
+          font-size: 0.85rem;
           text-transform: uppercase;
-          letter-spacing: 0.5px;
-          color: var(--accent);
+          letter-spacing: 0.05em;
+          color: var(--secondary);
           margin-bottom: 12px;
         }
 
@@ -459,17 +463,18 @@ Auth: Bearer rex_live_948f
         .product-ui-mockup {
           width: 100%;
           max-width: 380px;
-          border-color: rgba(255, 255, 255, 0.05);
+          border-color: var(--border-glass);
           overflow: hidden;
-          background: rgba(3, 7, 18, 0.5);
+          background: var(--bg-deep);
+          box-shadow: none;
         }
 
         .mockup-header {
           display: flex;
           align-items: center;
           padding: 12px 16px;
-          background: rgba(255, 255, 255, 0.02);
-          border-bottom: 1px solid rgba(255,255,255,0.05);
+          background: rgba(15, 23, 42, 0.02);
+          border-bottom: 1px solid var(--border-glass);
           gap: 6px;
         }
 
@@ -485,7 +490,7 @@ Auth: Bearer rex_live_948f
         .window-dot.green { background: #10b981; }
 
         .mockup-title {
-          font-family: var(--font-header);
+          font-family: var(--font-badge);
           font-size: 0.72rem;
           color: var(--text-muted);
           margin-left: 10px;
@@ -505,8 +510,8 @@ Auth: Bearer rex_live_948f
         }
 
         .metric-box {
-          background: rgba(255,255,255,0.01);
-          border: 1px solid rgba(255,255,255,0.04);
+          background: #ffffff;
+          border: 1px solid var(--border-glass);
           padding: 10px;
           border-radius: 6px;
           text-align: center;
@@ -520,7 +525,7 @@ Auth: Bearer rex_live_948f
         }
 
         .metric-box .val {
-          font-family: var(--font-header);
+          font-family: var(--font-badge);
           font-weight: 700;
           font-size: 0.95rem;
           color: var(--text-bright);
@@ -529,8 +534,8 @@ Auth: Bearer rex_live_948f
         .metric-box .val.cyan { color: var(--primary); }
 
         .chart-preview-box {
-          background: rgba(255,255,255,0.02);
-          border: 1px solid rgba(255,255,255,0.04);
+          background: #ffffff;
+          border: 1px solid var(--border-glass);
           padding: 14px;
           border-radius: 6px;
         }
@@ -559,14 +564,14 @@ Auth: Bearer rex_live_948f
         .app-avatar {
           width: 32px;
           height: 32px;
-          background: rgba(0, 240, 255, 0.1);
-          border: 1px solid var(--border-glow);
+          background: rgba(91, 33, 182, 0.05);
+          border: 1px solid rgba(91, 33, 182, 0.15);
           color: var(--primary);
           border-radius: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
-          font-family: var(--font-header);
+          font-family: var(--font-badge);
           font-weight: 700;
           font-size: 0.8rem;
         }
@@ -596,7 +601,7 @@ Auth: Bearer rex_live_948f
 
         .progress-track {
           height: 4px;
-          background: rgba(255,255,255,0.08);
+          background: rgba(15, 23, 42, 0.08);
           border-radius: 20px;
           overflow: hidden;
         }
@@ -604,7 +609,6 @@ Auth: Bearer rex_live_948f
         .progress-bar {
           height: 100%;
           background: var(--primary);
-          box-shadow: 0 0 6px var(--primary);
         }
 
         .extracted-tags {
@@ -615,8 +619,8 @@ Auth: Bearer rex_live_948f
         .extracted-tags .tag {
           font-size: 0.65rem;
           padding: 2px 8px;
-          background: rgba(255,255,255,0.03);
-          border: 1px solid rgba(255,255,255,0.06);
+          background: #ffffff;
+          border: 1px solid var(--border-glass);
           border-radius: 4px;
         }
 
@@ -634,7 +638,7 @@ Auth: Bearer rex_live_948f
         }
 
         .retail-vitals .val {
-          font-family: var(--font-header);
+          font-family: var(--font-badge);
           font-weight: 700;
           font-size: 0.85rem;
         }
@@ -646,7 +650,7 @@ Auth: Bearer rex_live_948f
           justify-content: space-around;
           align-items: flex-end;
           height: 60px;
-          border-bottom: 1px solid rgba(255,255,255,0.1);
+          border-bottom: 1px solid var(--border-glass);
           margin-bottom: 14px;
         }
 
@@ -656,7 +660,7 @@ Auth: Bearer rex_live_948f
 
         .animated-bars .bar {
           width: 100%;
-          background: rgba(255,255,255,0.08);
+          background: rgba(15, 23, 42, 0.05);
           border-radius: 2px 2px 0 0;
         }
 
@@ -666,19 +670,20 @@ Auth: Bearer rex_live_948f
 
         .prediction-note {
           font-size: 0.68rem;
-          color: var(--accent);
+          color: var(--primary);
           margin-bottom: 0;
-          background: rgba(255, 107, 0, 0.05);
+          background: rgba(91, 33, 182, 0.03);
           padding: 8px;
-          border-left: 2px solid var(--accent);
+          border-left: 2px solid var(--primary);
           border-radius: 0 4px 4px 0;
         }
 
         /* Code Mockup */
         .code-mockup {
-          background: #020617;
+          background: #ffffff;
           border-radius: 4px;
           padding: 16px;
+          border: 1px solid var(--border-glass);
         }
 
         .code-mockup pre {
@@ -689,7 +694,7 @@ Auth: Bearer rex_live_948f
         .code-mockup code {
           font-family: 'Courier New', Courier, monospace;
           font-size: 0.7rem;
-          color: #38bdf8;
+          color: var(--primary);
           line-height: 1.4;
         }
 
@@ -708,6 +713,8 @@ Auth: Bearer rex_live_948f
 
         .feat-card {
           padding: 24px 20px;
+          background: #ffffff;
+          box-shadow: var(--shadow-premium);
         }
 
         .feat-card h5 {
@@ -730,7 +737,7 @@ Auth: Bearer rex_live_948f
           left: 0;
           width: 100%;
           height: 100%;
-          background: rgba(3, 7, 18, 0.7);
+          background: rgba(15, 23, 42, 0.4);
           backdrop-filter: blur(8px);
           z-index: 150;
         }
@@ -739,7 +746,8 @@ Auth: Bearer rex_live_948f
           width: 440px;
           padding: 40px;
           position: relative;
-          background: var(--bg-deep);
+          background: #ffffff;
+          border-color: var(--border-glass);
         }
 
         .modal-close-btn {
@@ -760,7 +768,7 @@ Auth: Bearer rex_live_948f
 
         .prod-name-highlight {
           display: inline-block;
-          font-family: var(--font-header);
+          font-family: var(--font-badge);
           font-weight: 600;
           color: var(--primary);
           margin-bottom: 20px;
@@ -775,15 +783,17 @@ Auth: Bearer rex_live_948f
         }
 
         .form-group label {
-          font-family: var(--font-header);
+          font-family: var(--font-badge);
           font-size: 0.8rem;
-          font-weight: 500;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
           color: var(--text-normal);
         }
 
         .form-group input, .form-group textarea {
           padding: 10px 14px;
-          background: rgba(255,255,255,0.03);
+          background: var(--bg-deep);
           border: 1px solid var(--border-glass);
           border-radius: var(--radius-sm);
           color: var(--text-bright);
@@ -794,6 +804,7 @@ Auth: Bearer rex_live_948f
         .form-group input:focus, .form-group textarea:focus {
           outline: none;
           border-color: var(--primary);
+          background: #ffffff;
         }
 
         .w-100 {

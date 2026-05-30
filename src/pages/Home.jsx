@@ -76,7 +76,7 @@ const Home = ({ setCurrentPage }) => {
           <div className="hero-ctas">
             <button onClick={() => handleCTA('consultation')} className="btn-primary">
               Book Free Consultation
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </button>
             <button onClick={() => handleCTA('products')} className="btn-secondary">
               Explore SaaS Products
@@ -139,7 +139,7 @@ const Home = ({ setCurrentPage }) => {
           {solutions.map((sol, idx) => (
             <div key={idx} className="glass-panel solution-card">
               <div className="sol-icon-shell">
-                <svg viewBox="0 0 100 100" width="30" height="30">
+                <svg viewBox="0 0 100 100" width="24" height="24">
                   <polygon points="50,15 90,80 10,80" stroke="var(--primary)" strokeWidth="6" fill="none" />
                 </svg>
               </div>
@@ -187,7 +187,7 @@ const Home = ({ setCurrentPage }) => {
                 ))}
               </ul>
             </div>
-            <button onClick={() => handleCTA('products')} className="btn-accent">
+            <button onClick={() => handleCTA('products')} className="btn-primary">
               Explore Specialized Products
             </button>
           </div>
@@ -214,12 +214,12 @@ const Home = ({ setCurrentPage }) => {
           </div>
           <div className="vision-globe glass-panel flex-center glowing-orange animate-float">
             <div className="globe-graphic">
-              <svg viewBox="0 0 100 100" width="120" height="120">
-                <circle cx="50" cy="50" r="40" stroke="var(--accent)" strokeWidth="1" fill="none" opacity="0.3" />
+              <svg viewBox="0 0 100 100" width="100" height="100">
+                <circle cx="50" cy="50" r="40" stroke="var(--secondary)" strokeWidth="1" fill="none" opacity="0.3" />
                 <circle cx="50" cy="50" r="30" stroke="var(--primary)" strokeWidth="1" fill="none" opacity="0.4" />
                 <ellipse cx="50" cy="50" rx="40" ry="12" stroke="var(--primary)" strokeWidth="1.5" fill="none" />
-                <ellipse cx="50" cy="50" rx="12" ry="40" stroke="var(--accent)" strokeWidth="1.5" fill="none" />
-                <circle cx="50" cy="50" r="8" fill="var(--text-bright)" className="pulse-globe" />
+                <ellipse cx="50" cy="50" rx="12" ry="40" stroke="var(--secondary)" strokeWidth="1.5" fill="none" />
+                <circle cx="50" cy="50" r="8" fill="var(--primary)" />
               </svg>
               <h4>Futuristic Indian Infrastructure</h4>
             </div>
@@ -275,12 +275,13 @@ const Home = ({ setCurrentPage }) => {
 
         /* Hero */
         .hero-section {
-          height: 100vh;
+          height: 90vh;
           text-align: center;
           padding: 0 10%;
           position: relative;
           overflow: hidden;
           flex-direction: column;
+          background: radial-gradient(circle at 50% 30%, rgba(var(--secondary-rgb), 0.1) 0%, transparent 60%);
         }
 
         .hero-content {
@@ -290,16 +291,16 @@ const Home = ({ setCurrentPage }) => {
         }
 
         .hero-content h1 {
-          font-size: 3.8rem;
+          font-size: 3.5rem;
           line-height: 1.15;
           margin-bottom: 24px;
           letter-spacing: -1px;
         }
 
         .hero-subtext {
-          font-size: 1.2rem;
+          font-size: 1.15rem;
           color: var(--text-normal);
-          line-height: 1.6;
+          line-height: 1.62;
           max-width: 760px;
           margin: 0 auto 40px auto;
         }
@@ -315,7 +316,7 @@ const Home = ({ setCurrentPage }) => {
           bottom: 0;
           left: 0;
           width: 100%;
-          height: 120px;
+          height: 100px;
           background: linear-gradient(to top, var(--bg-deep), transparent);
           z-index: 2;
         }
@@ -327,41 +328,44 @@ const Home = ({ setCurrentPage }) => {
         }
 
         .section-header h2 {
-          font-size: 2.5rem;
+          font-size: 2.3rem;
           margin: 10px 0 20px 0;
+          color: var(--text-bright);
         }
 
         .section-header p {
-          color: var(--text-muted);
+          color: var(--text-normal);
           max-width: 600px;
           margin: 0 auto;
-          font-size: 1.1rem;
+          font-size: 1.05rem;
         }
 
         .overview-card {
           padding: 40px 30px;
           position: relative;
           overflow: hidden;
+          background: #ffffff;
+          box-shadow: var(--shadow-premium);
         }
 
         .card-number {
-          font-family: var(--font-header);
-          font-weight: 900;
-          font-size: 3rem;
-          color: rgba(0, 240, 255, 0.08);
+          font-family: var(--font-badge);
+          font-weight: 800;
+          font-size: 2.2rem;
+          color: rgba(91, 33, 182, 0.08);
           position: absolute;
           top: 15px;
           right: 20px;
         }
 
         .overview-card h3 {
-          font-size: 1.3rem;
+          font-size: 1.25rem;
           margin-bottom: 16px;
           color: var(--primary);
         }
 
         .overview-card p {
-          font-size: 0.95rem;
+          font-size: 0.92rem;
           line-height: 1.6;
           color: var(--text-normal);
           margin-bottom: 0;
@@ -381,6 +385,8 @@ const Home = ({ setCurrentPage }) => {
           align-items: center;
           padding: 24px 30px;
           gap: 30px;
+          background: #ffffff;
+          box-shadow: var(--shadow-premium);
         }
 
         .problem-side, .solution-side {
@@ -391,7 +397,7 @@ const Home = ({ setCurrentPage }) => {
         }
 
         .indicator {
-          font-family: var(--font-header);
+          font-family: var(--font-badge);
           font-weight: 800;
           font-size: 1.2rem;
           width: 32px;
@@ -404,21 +410,21 @@ const Home = ({ setCurrentPage }) => {
         }
 
         .indicator.red {
-          background: rgba(239, 68, 68, 0.1);
-          color: #ef4444;
-          border: 1px solid rgba(239, 68, 68, 0.2);
+          background: rgba(221, 125, 98, 0.1);
+          color: var(--accent);
+          border: 1px solid rgba(221, 125, 98, 0.2);
         }
 
         .indicator.green {
-          background: rgba(0, 240, 255, 0.1);
+          background: rgba(91, 33, 182, 0.08);
           color: var(--primary);
-          border: 1px solid rgba(0, 240, 255, 0.2);
+          border: 1px solid rgba(91, 33, 182, 0.2);
         }
 
         .divider-line {
           width: 1px;
           height: 40px;
-          background: rgba(255, 255, 255, 0.08);
+          background: var(--border-glass);
         }
 
         .problem-card p {
@@ -438,13 +444,15 @@ const Home = ({ setCurrentPage }) => {
           display: flex;
           flex-direction: column;
           gap: 16px;
+          background: #ffffff;
+          box-shadow: var(--shadow-premium);
         }
 
         .sol-icon-shell {
-          width: 46px;
-          height: 46px;
-          background: rgba(0, 240, 255, 0.05);
-          border: 1px solid var(--border-glow);
+          width: 44px;
+          height: 44px;
+          background: rgba(91, 33, 182, 0.04);
+          border: 1px solid rgba(91, 33, 182, 0.12);
           border-radius: 8px;
           display: flex;
           align-items: center;
@@ -468,12 +476,14 @@ const Home = ({ setCurrentPage }) => {
           background: none;
           border: none;
           color: var(--primary);
-          font-family: var(--font-header);
+          font-family: var(--font-badge);
           font-weight: 600;
-          font-size: 0.9rem;
+          font-size: 0.85rem;
           cursor: pointer;
           align-self: flex-start;
           transition: var(--transition-fast);
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
         }
 
         .learn-more-link:hover {
@@ -498,23 +508,25 @@ const Home = ({ setCurrentPage }) => {
 
         .switcher-btn {
           padding: 18px 24px;
-          background: rgba(255, 255, 255, 0.01);
+          background: #ffffff;
           border: 1px solid var(--border-glass);
           color: var(--text-normal);
-          font-family: var(--font-header);
+          font-family: var(--font-badge);
           font-weight: 600;
-          font-size: 1rem;
+          font-size: 0.9rem;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
           border-radius: var(--radius-sm);
           text-align: left;
           cursor: pointer;
           transition: var(--transition-smooth);
+          box-shadow: var(--shadow-premium);
         }
 
         .switcher-btn:hover, .switcher-btn.active {
           border-color: var(--primary);
           color: var(--primary);
-          background: rgba(0, 240, 255, 0.04);
-          box-shadow: 0 0 12px rgba(0, 240, 255, 0.1);
+          background: rgba(91, 33, 182, 0.03);
         }
 
         .switcher-content {
@@ -523,6 +535,7 @@ const Home = ({ setCurrentPage }) => {
           flex-direction: column;
           justify-content: center;
           align-items: flex-start;
+          background: #ffffff;
         }
 
         .switcher-content h3 {
@@ -543,11 +556,13 @@ const Home = ({ setCurrentPage }) => {
         }
 
         .industry-features h4 {
-          font-size: 0.95rem;
+          font-family: var(--font-badge);
+          font-weight: 700;
+          font-size: 0.85rem;
           text-transform: uppercase;
-          letter-spacing: 0.5px;
+          letter-spacing: 0.05em;
           margin-bottom: 14px;
-          color: var(--accent);
+          color: var(--secondary);
         }
 
         .industry-features ul {
@@ -570,14 +585,13 @@ const Home = ({ setCurrentPage }) => {
           height: 6px;
           background: var(--primary);
           border-radius: 50%;
-          box-shadow: 0 0 6px var(--primary);
           display: inline-block;
         }
 
         /* Why Choose Us & Globe */
         .vision-p {
           font-size: 1.05rem;
-          line-height: 1.7;
+          line-height: 1.65;
           margin-bottom: 20px;
         }
 
@@ -592,24 +606,25 @@ const Home = ({ setCurrentPage }) => {
           display: flex;
           align-items: center;
           gap: 12px;
-          font-family: var(--font-header);
+          font-family: var(--font-badge);
           font-weight: 600;
-          font-size: 1rem;
+          font-size: 0.95rem;
           color: var(--text-bright);
+          letter-spacing: 0.02em;
         }
 
         .pillar-dot {
           width: 8px;
           height: 8px;
-          background: var(--accent);
+          background: var(--secondary);
           border-radius: 50%;
-          box-shadow: 0 0 8px var(--accent);
         }
 
         .vision-globe {
           min-height: 380px;
           text-align: center;
           flex-direction: column;
+          background: #ffffff;
         }
 
         .globe-graphic {
@@ -620,14 +635,11 @@ const Home = ({ setCurrentPage }) => {
         }
 
         .globe-graphic h4 {
-          font-size: 1.1rem;
-          letter-spacing: 1px;
+          font-family: var(--font-badge);
+          font-size: 1rem;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
           color: var(--text-bright);
-        }
-
-        .pulse-globe {
-          transform-origin: center;
-          animation: pulseGlow 2s infinite ease-in-out;
         }
 
         /* Pilot section */
@@ -649,6 +661,8 @@ const Home = ({ setCurrentPage }) => {
           width: 280px;
           padding: 24px;
           flex-shrink: 0;
+          background: #ffffff;
+          box-shadow: var(--shadow-premium);
         }
 
         .ticker-card h4 {
@@ -661,6 +675,7 @@ const Home = ({ setCurrentPage }) => {
           font-size: 0.85rem;
           line-height: 1.5;
           margin-bottom: 0;
+          color: var(--text-normal);
         }
 
         @keyframes slideTicker {
@@ -674,10 +689,11 @@ const Home = ({ setCurrentPage }) => {
           text-align: center;
           max-width: 900px;
           margin: 0 auto;
+          background: #ffffff;
         }
 
         .cta-box h2 {
-          font-size: 2.6rem;
+          font-size: 2.5rem;
           margin-bottom: 16px;
         }
 
@@ -685,7 +701,7 @@ const Home = ({ setCurrentPage }) => {
           color: var(--text-normal);
           max-width: 600px;
           margin: 0 auto 36px auto;
-          font-size: 1.1rem;
+          font-size: 1.05rem;
         }
 
         .cta-btns {

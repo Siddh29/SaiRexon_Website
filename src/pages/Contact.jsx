@@ -80,33 +80,33 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Custom Interactive Vector Map Simulation (Wow Factor #3) */}
+            {/* Custom Interactive Vector Map Simulation (High-Contrast Clean Sand/Slate Style!) */}
             <div className="map-simulator glass-panel glowing-cyan">
               <h4>Active Operational Hubs</h4>
               <div className="india-map-vector">
                 <svg viewBox="0 0 100 100" className="vector-svg">
                   {/* Mock India Boundaries representation */}
-                  <path d="M35,15 Q40,5 50,15 T70,30 T60,60 T45,90 T30,70 T35,35 Z" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+                  <path d="M35,15 Q40,5 50,15 T70,30 T60,60 T45,90 T30,70 T35,35 Z" fill="var(--bg-deep)" stroke="var(--border-glass)" strokeWidth="1" />
                   
                   {/* Radar Beacon 1: Mumbai */}
                   <g className="beacon mumbaibeacon">
-                    <circle cx="36" cy="62" r="8" fill="none" stroke="var(--accent)" strokeWidth="1" className="radar-ring" />
+                    <circle cx="36" cy="62" r="6" fill="none" stroke="var(--accent)" strokeWidth="1" className="radar-ring" />
                     <circle cx="36" cy="62" r="3" fill="var(--accent)" />
-                    <text x="36" y="56" fill="var(--text-bright)" fontSize="4" fontWeight="600" textAnchor="middle">Mumbai Hub</text>
+                    <text x="36" y="55" fill="var(--text-bright)" fontSize="4.5" fontWeight="600" textAnchor="middle">Mumbai Hub</text>
                   </g>
 
                   {/* Radar Beacon 2: Bengaluru */}
                   <g className="beacon blrbeacon">
-                    <circle cx="48" cy="78" r="8" fill="none" stroke="var(--primary)" strokeWidth="1" className="radar-ring" />
+                    <circle cx="48" cy="78" r="6" fill="none" stroke="var(--primary)" strokeWidth="1" className="radar-ring" />
                     <circle cx="48" cy="78" r="3" fill="var(--primary)" />
-                    <text x="48" y="73" fill="var(--text-bright)" fontSize="4" fontWeight="600" textAnchor="middle">Bengaluru</text>
+                    <text x="48" y="72" fill="var(--text-bright)" fontSize="4.5" fontWeight="600" textAnchor="middle">Bengaluru</text>
                   </g>
 
                   {/* Radar Beacon 3: Hyderabad */}
                   <g className="beacon hydbeacon">
-                    <circle cx="50" cy="68" r="10" fill="none" stroke="var(--primary)" strokeWidth="1.5" className="radar-ring-main" />
+                    <circle cx="50" cy="68" r="8" fill="none" stroke="var(--primary)" strokeWidth="1.5" className="radar-ring-main" />
                     <circle cx="50" cy="68" r="4" fill="var(--primary)" />
-                    <text x="50" y="62" fill="var(--primary)" fontSize="4.5" fontWeight="700" textAnchor="middle">Hyderabad HQ</text>
+                    <text x="50" y="61" fill="var(--primary)" fontSize="5" fontWeight="700" textAnchor="middle">Hyderabad HQ</text>
                   </g>
                 </svg>
               </div>
@@ -205,7 +205,7 @@ const Contact = () => {
                   />
                 </div>
 
-                <button type="submit" disabled={loading} className="btn-accent w-100">
+                <button type="submit" disabled={loading} className="btn-primary w-100">
                   {loading ? 'Transmitting system logs...' : 'Transmit Project Scope'}
                 </button>
               </form>
@@ -216,11 +216,11 @@ const Contact = () => {
 
       <style>{`
         .contact-header {
-          min-height: 65vh;
+          min-height: 60vh;
           text-align: center;
           padding: 0 10%;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-          background: radial-gradient(circle at 50% 30%, rgba(var(--primary-rgb), 0.05) 0%, transparent 60%);
+          border-bottom: 1px solid var(--border-glass);
+          background: radial-gradient(circle at 50% 30%, rgba(var(--secondary-rgb), 0.08) 0%, transparent 60%);
         }
 
         .header-text {
@@ -264,15 +264,18 @@ const Contact = () => {
           width: 44px;
           height: 44px;
           border-radius: 50%;
-          background: rgba(0, 240, 255, 0.05);
-          border: 1px solid rgba(0, 240, 255, 0.2);
+          background: rgba(91, 33, 182, 0.04);
+          border: 1px solid rgba(91, 33, 182, 0.12);
           flex-shrink: 0;
         }
 
         .coordinate-item h5 {
-          font-size: 1.05rem;
+          font-family: var(--font-badge);
+          font-weight: 700;
+          font-size: 0.95rem;
           color: var(--primary);
-          margin-bottom: 4px;
+          letter-spacing: 0.02em;
+          text-transform: uppercase;
         }
 
         .coordinate-item p {
@@ -285,16 +288,17 @@ const Contact = () => {
         /* Map Simulator */
         .map-simulator {
           padding: 30px;
-          background: rgba(3, 7, 18, 0.4);
+          background: #ffffff;
         }
 
         .map-simulator h4 {
-          font-size: 1rem;
+          font-family: var(--font-badge);
+          font-size: 0.85rem;
           color: var(--text-bright);
           margin-bottom: 20px;
           text-align: center;
           text-transform: uppercase;
-          letter-spacing: 0.5px;
+          letter-spacing: 0.05em;
         }
 
         .india-map-vector {
@@ -330,7 +334,7 @@ const Contact = () => {
         /* Form styling */
         .contact-form-panel {
           padding: 50px 40px;
-          background: rgba(3, 7, 18, 0.5);
+          background: #ffffff;
         }
 
         .contact-form h3 {
@@ -349,7 +353,7 @@ const Contact = () => {
 
         .select-input {
           padding: 12px;
-          background: rgba(3, 7, 18, 0.6);
+          background: var(--bg-deep);
           border: 1px solid var(--border-glass);
           border-radius: var(--radius-sm);
           color: var(--text-bright);
@@ -358,7 +362,7 @@ const Contact = () => {
         }
 
         .select-input option {
-          background: var(--bg-deep);
+          background: #ffffff;
           color: var(--text-bright);
         }
 
@@ -373,14 +377,13 @@ const Contact = () => {
         .success-icon {
           width: 64px;
           height: 64px;
-          background: rgba(0, 240, 255, 0.15);
+          background: rgba(91, 33, 182, 0.08);
           border: 2px solid var(--primary);
           color: var(--primary);
           font-size: 2rem;
           font-weight: bold;
           border-radius: 50%;
           margin-bottom: 24px;
-          box-shadow: var(--shadow-neon-cyan);
         }
 
         .form-success-wrapper h3 {

@@ -339,163 +339,169 @@ const Consultation = () => {
           min-height: 65vh;
           text-align: center;
           padding: 0 10%;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-          background: radial-gradient(circle at 50% 30%, rgba(var(--accent-rgb), 0.05) 0%, transparent 60%);
+          border-bottom: 1px solid var(--border-glass);
+          background: radial-gradient(circle at 50% 30%, rgba(var(--accent-rgb), 0.08) 0%, transparent 60%);
         }
-
+ 
         .header-text {
           max-width: 800px;
           margin-top: 60px;
         }
-
+ 
         .header-text h1 {
           font-size: 3.5rem;
           margin-bottom: 24px;
           line-height: 1.15;
         }
-
+ 
         .header-text p {
           font-size: 1.15rem;
           line-height: 1.7;
           color: var(--text-normal);
         }
-
+ 
         /* Wizard */
         .wizard-container {
           max-width: 850px;
           margin: 0 auto;
           padding: 50px;
-          background: rgba(3, 7, 18, 0.5);
+          background: #ffffff;
+          border: 1px solid var(--border-glass);
+          border-radius: var(--radius-md);
+          box-shadow: var(--shadow-premium-hover);
         }
-
+ 
         .wizard-progress-bar {
           display: flex;
           justify-content: space-between;
-          border-bottom: 1px solid rgba(255,255,255,0.05);
+          border-bottom: 1px solid var(--border-glass);
           padding-bottom: 20px;
           margin-bottom: 40px;
         }
-
+ 
         .bar-step {
           display: flex;
           align-items: center;
           gap: 10px;
-          opacity: 0.3;
+          opacity: 0.4;
           transition: var(--transition-smooth);
         }
-
+ 
         .bar-step.active {
           opacity: 1;
         }
-
+ 
         .bar-step .dot {
           width: 8px;
           height: 8px;
           background: var(--accent);
           border-radius: 50%;
-          box-shadow: 0 0 6px var(--accent);
+          box-shadow: 0 0 4px rgba(var(--accent-rgb), 0.4);
         }
-
+ 
         .bar-step span {
-          font-family: var(--font-header);
+          font-family: var(--font-badge);
           font-weight: 600;
           font-size: 0.85rem;
           color: var(--text-bright);
         }
-
+ 
         .wizard-step-panel h3 {
           font-size: 1.6rem;
           color: var(--text-bright);
           margin-bottom: 6px;
         }
-
+ 
         .step-sub {
           font-size: 0.9rem;
           color: var(--text-muted);
           margin-bottom: 30px;
         }
-
+ 
         /* Diagnostic Selector grids */
         .select-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           gap: 12px;
         }
-
+ 
         .select-card-btn {
           padding: 18px 12px;
-          background: rgba(255,255,255,0.01);
+          background: #ffffff;
           border: 1px solid var(--border-glass);
           color: var(--text-normal);
-          font-family: var(--font-header);
+          font-family: var(--font-badge);
           font-weight: 500;
           font-size: 0.9rem;
           border-radius: var(--radius-sm);
           cursor: pointer;
           transition: var(--transition-fast);
+          box-shadow: var(--shadow-premium);
         }
-
+ 
         .select-card-btn:hover, .select-card-btn.active {
           border-color: var(--accent);
           color: var(--accent);
-          background: rgba(255, 107, 0, 0.05);
+          background: rgba(221, 125, 98, 0.05);
         }
-
+ 
         .radio-selection-group {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
           gap: 10px;
         }
-
+ 
         .radio-option-btn {
           padding: 12px 10px;
-          background: rgba(255,255,255,0.01);
+          background: #ffffff;
           border: 1px solid var(--border-glass);
           border-radius: var(--radius-sm);
           color: var(--text-normal);
-          font-family: var(--font-header);
+          font-family: var(--font-badge);
           font-weight: 500;
           font-size: 0.82rem;
           cursor: pointer;
           transition: var(--transition-fast);
+          box-shadow: var(--shadow-premium);
         }
-
+ 
         .radio-option-btn:hover, .radio-option-btn.active {
           border-color: var(--accent);
           color: var(--accent);
-          background: rgba(255, 107, 0, 0.05);
+          background: rgba(221, 125, 98, 0.05);
         }
-
+ 
         /* Checkbox Option btn */
         .checkbox-selection-grid {
           display: flex;
           flex-direction: column;
           gap: 12px;
         }
-
+ 
         .checkbox-option-btn {
           display: flex;
           align-items: center;
           gap: 14px;
           padding: 14px 20px;
-          background: rgba(255,255,255,0.01);
+          background: #ffffff;
           border: 1px solid var(--border-glass);
           color: var(--text-normal);
-          font-family: var(--font-header);
+          font-family: var(--font-body);
           font-weight: 500;
           font-size: 0.95rem;
           text-align: left;
           cursor: pointer;
           border-radius: var(--radius-sm);
           transition: var(--transition-fast);
+          box-shadow: var(--shadow-premium);
         }
-
+ 
         .checkbox-option-btn:hover, .checkbox-option-btn.active {
           border-color: var(--accent);
           color: var(--accent);
-          background: rgba(255, 107, 0, 0.04);
+          background: rgba(221, 125, 98, 0.04);
         }
-
+ 
         .check-box-indicator {
           width: 14px;
           height: 14px;
@@ -504,66 +510,77 @@ const Consultation = () => {
           display: inline-block;
           position: relative;
           transition: var(--transition-fast);
+          background: #ffffff;
         }
-
+ 
         .checkbox-option-btn.active .check-box-indicator {
           border-color: var(--accent);
           background: var(--accent);
         }
-
+ 
         .checkbox-option-btn.active .check-box-indicator::after {
           content: '✓';
           position: absolute;
           top: -2px;
           left: 2px;
           font-size: 0.68rem;
-          color: var(--text-bright);
+          color: #ffffff;
           font-weight: bold;
         }
-
+ 
         /* Date Selector */
         .date-selector-wizard {
           padding: 14px;
-          background: rgba(255,255,255,0.03);
+          background: var(--bg-deep);
           border: 1px solid var(--border-glass);
           border-radius: var(--radius-sm);
           color: var(--text-bright);
           font-family: var(--font-body);
           width: 100%;
+          font-size: 0.9rem;
+          transition: var(--transition-fast);
         }
 
+        .date-selector-wizard:focus {
+          outline: none;
+          border-color: var(--accent);
+          background: #ffffff;
+          box-shadow: 0 0 0 2px rgba(221, 125, 98, 0.1);
+        }
+ 
         .slots-selection-list {
           display: flex;
           flex-direction: column;
           gap: 10px;
         }
-
+ 
         .slot-wizard-btn {
           padding: 14px;
-          background: rgba(255,255,255,0.01);
+          background: #ffffff;
           border: 1px solid var(--border-glass);
           border-radius: var(--radius-sm);
           color: var(--text-normal);
-          font-family: var(--font-header);
+          font-family: var(--font-badge);
           font-weight: 600;
           cursor: pointer;
           transition: var(--transition-fast);
           text-align: center;
+          box-shadow: var(--shadow-premium);
         }
-
+ 
         .slot-wizard-btn:hover, .slot-wizard-btn.active {
           border-color: var(--accent);
           color: var(--accent);
-          background: rgba(255, 107, 0, 0.05);
+          background: rgba(221, 125, 98, 0.05);
         }
-
+ 
         .wizard-footer-btns {
           display: flex;
           margin-top: 40px;
-          border-top: 1px solid rgba(255,255,255,0.05);
+          border-top: 1px solid var(--border-glass);
           padding-top: 24px;
         }
-
+ 
         /* Booking complete */
         .booking-complete-screen {
           padding: 40px 0;
@@ -572,32 +589,31 @@ const Consultation = () => {
           align-items: center;
           justify-content: center;
         }
-
+ 
         .complete-icon {
           width: 64px;
           height: 64px;
-          background: rgba(255, 107, 0, 0.15);
-          border: 2px solid var(--accent);
+          background: rgba(221, 125, 98, 0.15);
+          border: 2.5px solid var(--accent);
           color: var(--accent);
           font-size: 2rem;
           font-weight: bold;
           border-radius: 50%;
           margin-bottom: 24px;
-          box-shadow: var(--shadow-neon-orange);
         }
-
+ 
         .booking-complete-screen h2 {
           font-size: 2rem;
           color: var(--text-bright);
           margin-bottom: 16px;
         }
-
+ 
         .success-txt {
           font-size: 1.15rem;
           color: var(--accent);
           margin-bottom: 12px;
         }
-
+ 
         .materials-txt {
           font-size: 0.95rem;
           line-height: 1.6;
@@ -605,6 +621,41 @@ const Consultation = () => {
           max-width: 480px;
         }
 
+        /* Form elements for Step 4 */
+        .wizard-form .form-group {
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+        }
+
+        .wizard-form .form-group label {
+          font-family: var(--font-badge);
+          font-size: 0.8rem;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          color: var(--text-normal);
+        }
+
+        .wizard-form .form-group input {
+          padding: 12px 14px;
+          background: var(--bg-deep);
+          border: 1px solid var(--border-glass);
+          border-radius: var(--radius-sm);
+          color: var(--text-bright);
+          font-family: var(--font-body);
+          font-size: 0.9rem;
+          transition: var(--transition-fast);
+          width: 100%;
+        }
+
+        .wizard-form .form-group input:focus {
+          outline: none;
+          border-color: var(--accent);
+          background: #ffffff;
+          box-shadow: 0 0 0 2px rgba(221, 125, 98, 0.1);
+        }
+ 
         @media (max-width: 768px) {
           .consultation-header h1 {
             font-size: 2.3rem;

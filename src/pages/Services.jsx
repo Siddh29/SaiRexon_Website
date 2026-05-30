@@ -28,7 +28,7 @@ const Services = () => {
   const caseStudies = [
     { title: '98% Patient Booking Accuracy', category: 'healthcare', desc: 'A clinic cluster in Maharashtra deployed RexonHealth, completely automating intake schedules and EHR synchronizations.', client: 'Sanjivani Health' },
     { title: 'Recruiting Speed Cut by 14 Days', category: 'workforce', desc: 'A staffing conglomerate in Bengaluru deployed our vector skills matching engines, filtering 24,000 resumes automatically.', client: 'CareerVantage India' },
-    { title: '34% Lower Excess Stock Waste', category: 'commerce', desc: 'A multi-city retail grocery chain integrated our predictive load planners, automatically optimizing store shelf supplies.', client: 'HyperMart India' }
+    { title: '34% Lower Excess Stock Waste', category: 'commerce', desc: 'A multi-city retail grocery chain integrated our predictive load planners, automatically optimizing store supply allocations.', client: 'HyperMart India' }
   ];
 
   const availableSlots = [
@@ -83,17 +83,20 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Interactive Migration Stepper (Wow Factor #2) */}
+      {/* Interactive Migration Stepper (Hexagains G1-G6 Level Timeline progression!) */}
       <section className="section-padding migration-stepper-section">
         <div className="section-header">
           <span className="badge blue">Modernization Pathway</span>
-          <h2>Interactive Migration Stepper</h2>
+          <h2>Bespoke Migration Timeline</h2>
           <p>Experience how SaiRexon transitions fragile legacy systems onto secure cloud networks.</p>
         </div>
 
         <div className="stepper-box glass-panel glowing-cyan">
-          {/* Progress Indicators */}
+          {/* Progress Indicators (Horizontal Connected Line like Screenshot 1) */}
           <div className="stepper-header">
+            <div className="stepper-connecting-line" style={{ width: `${(activeStep - 1) * 33.33}%` }} />
+            <div className="stepper-connecting-line-bg" />
+            
             {migrationSteps.map((m) => (
               <button
                 key={m.step}
@@ -133,14 +136,14 @@ const Services = () => {
             <div className="stepper-right flex-center">
               <div className="visual-indicator-box">
                 <svg viewBox="0 0 100 100" width="120" height="120">
-                  <circle cx="50" cy="50" r="40" stroke="var(--primary)" strokeWidth="1" fill="none" opacity="0.3" />
+                  <circle cx="50" cy="50" r="40" stroke="var(--secondary)" strokeWidth="1.5" fill="none" opacity="0.3" />
                   <path
                     d="M 50,50 L 50,10 A 40,40 0 0,1 90,50 Z"
                     fill="var(--primary)"
-                    opacity="0.15"
-                    style={{ transformOrigin: '50px 50px', transform: `rotate(${(activeStep - 1) * 90}deg)`, transition: 'all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)' }}
+                    opacity="0.08"
+                    style={{ transformOrigin: '50px 50px', transform: `rotate(${(activeStep - 1) * 90}deg)`, transition: 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)' }}
                   />
-                  <text x="50" y="55" textAnchor="middle" fill="var(--text-bright)" fontWeight="700" fontSize="14">
+                  <text x="50" y="55" textAnchor="middle" fill="var(--primary)" fontWeight="700" fontSize="14">
                     {activeStep * 25}%
                   </text>
                 </svg>
@@ -245,11 +248,11 @@ const Services = () => {
 
       <style>{`
         .services-header {
-          min-height: 65vh;
+          min-height: 60vh;
           text-align: center;
           padding: 0 10%;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-          background: radial-gradient(circle at 50% 30%, rgba(var(--accent-rgb), 0.05) 0%, transparent 60%);
+          border-bottom: 1px solid var(--border-glass);
+          background: radial-gradient(circle at 50% 30%, rgba(var(--accent-rgb), 0.08) 0%, transparent 60%);
         }
 
         .header-text {
@@ -275,14 +278,15 @@ const Services = () => {
           display: flex;
           flex-direction: column;
           gap: 16px;
+          background: #ffffff;
+          box-shadow: var(--shadow-premium);
         }
 
         .srv-num {
-          font-family: var(--font-header);
+          font-family: var(--font-badge);
           font-weight: 800;
-          font-size: 1.6rem;
+          font-size: 1.5rem;
           color: var(--primary);
-          text-shadow: 0 0 6px var(--primary);
         }
 
         .service-detail-card h3 {
@@ -297,20 +301,41 @@ const Services = () => {
           margin-bottom: 0;
         }
 
-        /* Stepper section styling */
+        /* Stepper section styling (Hexagains Progression Line) */
         .stepper-box {
           max-width: 900px;
           margin: 40px auto 0 auto;
           padding: 50px;
+          background: #ffffff;
         }
 
         .stepper-header {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 16px;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+          display: flex;
+          justify-content: space-between;
+          border-bottom: 1px solid var(--border-glass);
           padding-bottom: 20px;
           margin-bottom: 30px;
+          position: relative;
+        }
+
+        .stepper-connecting-line-bg {
+          position: absolute;
+          top: 15px;
+          left: 5%;
+          width: 90%;
+          height: 2px;
+          background: rgba(15, 23, 42, 0.05);
+          z-index: 1;
+        }
+
+        .stepper-connecting-line {
+          position: absolute;
+          top: 15px;
+          left: 5%;
+          height: 2px;
+          background: var(--secondary);
+          z-index: 2;
+          transition: var(--transition-smooth);
         }
 
         .step-btn {
@@ -321,8 +346,9 @@ const Services = () => {
           align-items: center;
           gap: 10px;
           cursor: pointer;
-          opacity: 0.4;
+          opacity: 0.6;
           transition: var(--transition-smooth);
+          z-index: 3;
         }
 
         .step-btn.active {
@@ -330,43 +356,45 @@ const Services = () => {
         }
 
         .step-btn.completed {
-          opacity: 0.7;
+          opacity: 0.8;
         }
 
         .step-circle {
           width: 32px;
           height: 32px;
           border-radius: 50%;
-          background: rgba(255, 255, 255, 0.05);
-          border: 1px solid var(--border-glass);
+          background: #ffffff;
+          border: 2.5px solid var(--border-glass);
           color: var(--text-normal);
           display: flex;
           align-items: center;
           justify-content: center;
-          font-family: var(--font-header);
+          font-family: var(--font-badge);
           font-weight: 700;
           font-size: 0.9rem;
           transition: var(--transition-fast);
         }
 
         .step-btn.active .step-circle {
-          background: var(--primary);
+          background: #ffffff;
           border-color: var(--primary);
-          color: var(--bg-deep);
-          box-shadow: var(--shadow-neon-cyan);
+          color: var(--primary);
+          box-shadow: 0 4px 12px rgba(91, 33, 182, 0.15);
         }
 
         .step-btn.completed .step-circle {
-          background: rgba(0, 240, 255, 0.1);
-          border-color: var(--primary);
-          color: var(--primary);
+          background: var(--secondary);
+          border-color: var(--secondary);
+          color: #ffffff;
         }
 
         .step-title {
-          font-family: var(--font-header);
-          font-weight: 600;
-          font-size: 0.85rem;
+          font-family: var(--font-badge);
+          font-weight: 700;
+          font-size: 0.8rem;
           color: var(--text-bright);
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
         }
 
         .stepper-body {
@@ -383,7 +411,7 @@ const Services = () => {
 
         .stepper-left p {
           font-size: 1.05rem;
-          line-height: 1.6;
+          line-height: 1.65;
           color: var(--text-normal);
           margin-bottom: 30px;
         }
@@ -402,10 +430,11 @@ const Services = () => {
         }
 
         .visual-indicator-box h4 {
-          font-size: 0.95rem;
+          font-family: var(--font-badge);
+          font-size: 0.85rem;
           color: var(--text-muted);
           text-transform: uppercase;
-          letter-spacing: 0.5px;
+          letter-spacing: 0.05em;
         }
 
         /* Case Studies */
@@ -418,20 +447,24 @@ const Services = () => {
 
         .filter-btn {
           padding: 8px 20px;
-          background: rgba(255, 255, 255, 0.02);
+          background: #ffffff;
           border: 1px solid var(--border-glass);
           color: var(--text-normal);
-          font-family: var(--font-header);
-          font-weight: 500;
+          font-family: var(--font-badge);
+          font-weight: 600;
+          font-size: 0.85rem;
+          letter-spacing: 0.03em;
+          text-transform: uppercase;
           border-radius: 50px;
           cursor: pointer;
           transition: var(--transition-fast);
+          box-shadow: var(--shadow-premium);
         }
 
         .filter-btn:hover, .filter-btn.active {
           border-color: var(--primary);
           color: var(--primary);
-          background: rgba(0, 240, 255, 0.05);
+          background: rgba(91, 33, 182, 0.02);
         }
 
         .case-study-card {
@@ -439,15 +472,17 @@ const Services = () => {
           display: flex;
           flex-direction: column;
           gap: 14px;
+          background: #ffffff;
+          box-shadow: var(--shadow-premium);
         }
 
         .case-client {
-          font-family: var(--font-header);
-          font-weight: 600;
+          font-family: var(--font-badge);
+          font-weight: 700;
           font-size: 0.75rem;
           text-transform: uppercase;
-          color: var(--accent);
-          letter-spacing: 0.5px;
+          color: var(--secondary);
+          letter-spacing: 0.05em;
         }
 
         .case-study-card h3 {
@@ -481,7 +516,8 @@ const Services = () => {
 
         .scheduler-panel {
           padding: 40px;
-          background: rgba(3, 7, 18, 0.5);
+          background: #ffffff;
+          border-color: var(--border-glass);
         }
 
         .scheduler-form h3 {
@@ -492,7 +528,7 @@ const Services = () => {
 
         .date-input {
           padding: 12px;
-          background: rgba(255,255,255,0.03);
+          background: var(--bg-deep);
           border: 1px solid var(--border-glass);
           border-radius: var(--radius-sm);
           color: var(--text-bright);
@@ -507,21 +543,23 @@ const Services = () => {
 
         .slot-option-btn {
           padding: 12px;
-          background: rgba(255,255,255,0.02);
+          background: var(--bg-deep);
           border: 1px solid var(--border-glass);
           border-radius: var(--radius-sm);
           color: var(--text-normal);
-          font-family: var(--font-header);
-          font-weight: 500;
+          font-family: var(--font-badge);
+          font-weight: 600;
+          font-size: 0.85rem;
+          letter-spacing: 0.02em;
           cursor: pointer;
           transition: var(--transition-fast);
           text-align: center;
         }
 
         .slot-option-btn:hover, .slot-option-btn.active {
-          border-color: var(--accent);
-          color: var(--accent);
-          background: rgba(255, 107, 0, 0.05);
+          border-color: var(--primary);
+          color: var(--primary);
+          background: rgba(91, 33, 182, 0.03);
         }
 
         .booking-success-anim {
@@ -551,8 +589,13 @@ const Services = () => {
             font-size: 2.3rem;
           }
           .stepper-header {
-            grid-template-columns: repeat(2, 1fr);
             gap: 14px;
+          }
+          .stepper-connecting-line-bg, .stepper-connecting-line {
+            display: none;
+          }
+          .step-btn {
+            width: 100%;
           }
           .case-filters {
             flex-direction: column;

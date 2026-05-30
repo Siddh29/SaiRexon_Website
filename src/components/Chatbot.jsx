@@ -138,10 +138,10 @@ const Chatbot = ({ setCurrentPage }) => {
       {/* Launcher Bubble */}
       <button className={`chatbot-launcher ${isOpen ? 'active' : ''}`} onClick={() => setIsOpen(!isOpen)} aria-label="Open AI Assistant">
         {isOpen ? (
-          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         ) : (
           <div className="launcher-icon">
-            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
             <span className="pulse-dot"></span>
           </div>
         )}
@@ -153,16 +153,16 @@ const Chatbot = ({ setCurrentPage }) => {
         <div className="chat-header">
           <div className="header-info">
             <div className="bot-avatar">
-              <svg viewBox="0 0 100 100" width="28" height="28">
+              <svg viewBox="0 0 100 100" width="24" height="24">
                 <polygon points="50,15 90,80 10,80" stroke="var(--primary)" strokeWidth="8" fill="none" />
-                <circle cx="50" cy="50" r="10" fill="var(--accent)" />
+                <circle cx="50" cy="50" r="10" fill="var(--secondary)" />
               </svg>
             </div>
             <div>
               <h3>Rexon AI</h3>
               <div className="status-container">
                 <span className="status-dot"></span>
-                <span>Active Modernizer</span>
+                <span>Systems Concierge</span>
               </div>
             </div>
           </div>
@@ -174,7 +174,7 @@ const Chatbot = ({ setCurrentPage }) => {
             <div key={index} className={`message-row ${msg.sender === 'user' ? 'user-row' : 'bot-row'}`}>
               {msg.sender === 'bot' && (
                 <div className="msg-avatar">
-                  <svg viewBox="0 0 100 100" width="20" height="20">
+                  <svg viewBox="0 0 100 100" width="16" height="16">
                     <polygon points="50,15 90,80 10,80" stroke="var(--primary)" strokeWidth="8" fill="none" />
                   </svg>
                 </div>
@@ -188,7 +188,7 @@ const Chatbot = ({ setCurrentPage }) => {
           {isThinking && (
             <div className="message-row bot-row">
               <div className="msg-avatar">
-                <svg viewBox="0 0 100 100" width="20" height="20">
+                <svg viewBox="0 0 100 100" width="16" height="16">
                   <polygon points="50,15 90,80 10,80" stroke="var(--primary)" strokeWidth="8" fill="none" />
                 </svg>
               </div>
@@ -221,7 +221,7 @@ const Chatbot = ({ setCurrentPage }) => {
             className="chat-input"
           />
           <button type="submit" className="chat-send-btn" aria-label="Send message">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
           </button>
         </form>
       </div>
@@ -237,29 +237,30 @@ const Chatbot = ({ setCurrentPage }) => {
 
         /* Launcher Bubble */
         .chatbot-launcher {
-          width: 56px;
-          height: 56px;
+          width: 50px;
+          height: 50px;
           border-radius: 50%;
-          background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+          background: var(--primary);
           border: none;
-          color: var(--bg-deep);
+          color: #ffffff;
           display: flex;
           align-items: center;
           justify-content: center;
           cursor: pointer;
-          box-shadow: 0 4px 20px rgba(0, 240, 255, 0.4);
-          transition: var(--transition-smooth);
+          box-shadow: 0 8px 24px rgba(91, 33, 182, 0.25);
+          transition: var(--transition-fast);
         }
 
         .chatbot-launcher:hover {
-          transform: scale(1.08) rotate(5deg);
-          box-shadow: 0 6px 25px rgba(0, 240, 255, 0.6);
+          transform: scale(1.05);
+          box-shadow: 0 12px 30px rgba(91, 33, 182, 0.35);
         }
 
         .chatbot-launcher.active {
-          background: linear-gradient(135deg, var(--accent) 0%, #ff8c00 100%);
+          background: var(--bg-card);
+          border: 1px solid var(--border-glass);
           color: var(--text-bright);
-          box-shadow: 0 4px 20px rgba(255, 107, 0, 0.4);
+          box-shadow: var(--shadow-premium);
         }
 
         .launcher-icon {
@@ -273,30 +274,30 @@ const Chatbot = ({ setCurrentPage }) => {
           position: absolute;
           top: -2px;
           right: -2px;
-          width: 8px;
-          height: 8px;
-          background: var(--accent);
+          width: 6px;
+          height: 6px;
+          background: var(--secondary);
           border-radius: 50%;
-          box-shadow: 0 0 10px var(--accent);
-          animation: pulseGlow 2s infinite;
         }
 
         /* Chat Window */
         .chatbot-window {
           position: absolute;
-          bottom: 76px;
+          bottom: 66px;
           right: 0;
-          width: 380px;
-          height: 540px;
+          width: 360px;
+          height: 500px;
           display: flex;
           flex-direction: column;
           border-radius: var(--radius-md);
           overflow: hidden;
           opacity: 0;
-          transform: translateY(30px) scale(0.9);
+          transform: translateY(20px) scale(0.95);
           pointer-events: none;
           transition: var(--transition-smooth);
           z-index: 100;
+          border-color: var(--border-glass);
+          background: #ffffff;
         }
 
         .chatbot-window.open {
@@ -307,9 +308,9 @@ const Chatbot = ({ setCurrentPage }) => {
 
         /* Chat Header */
         .chat-header {
-          background: rgba(255, 255, 255, 0.03);
+          background: var(--bg-deep);
           border-bottom: 1px solid var(--border-glass);
-          padding: 16px 20px;
+          padding: 14px 20px;
         }
 
         .header-info {
@@ -322,16 +323,17 @@ const Chatbot = ({ setCurrentPage }) => {
           display: flex;
           align-items: center;
           justify-content: center;
-          width: 36px;
-          height: 36px;
-          background: rgba(0, 240, 255, 0.1);
-          border: 1px solid var(--border-glow);
+          width: 30px;
+          height: 30px;
+          background: #ffffff;
+          border: 1px solid var(--border-glass);
           border-radius: 50%;
         }
 
         .header-info h3 {
-          font-size: 1rem;
-          font-weight: 600;
+          font-family: var(--font-badge);
+          font-size: 0.9rem;
+          font-weight: 700;
           color: var(--text-bright);
         }
 
@@ -339,16 +341,15 @@ const Chatbot = ({ setCurrentPage }) => {
           display: flex;
           align-items: center;
           gap: 6px;
-          font-size: 0.75rem;
+          font-size: 0.7rem;
           color: var(--text-muted);
         }
 
         .status-dot {
-          width: 6px;
-          height: 6px;
-          background-color: var(--primary);
+          width: 5px;
+          height: 5px;
+          background-color: var(--secondary);
           border-radius: 50%;
-          box-shadow: 0 0 6px var(--primary);
           display: inline-block;
         }
 
@@ -359,8 +360,8 @@ const Chatbot = ({ setCurrentPage }) => {
           overflow-y: auto;
           display: flex;
           flex-direction: column;
-          gap: 16px;
-          background: rgba(3, 7, 18, 0.2);
+          gap: 14px;
+          background: #ffffff;
         }
 
         .message-row {
@@ -382,9 +383,9 @@ const Chatbot = ({ setCurrentPage }) => {
           display: flex;
           align-items: center;
           justify-content: center;
-          width: 24px;
-          height: 24px;
-          background: rgba(0, 240, 255, 0.05);
+          width: 22px;
+          height: 22px;
+          background: var(--bg-deep);
           border: 1px solid var(--border-glass);
           border-radius: 50%;
           flex-shrink: 0;
@@ -394,26 +395,27 @@ const Chatbot = ({ setCurrentPage }) => {
         .message-bubble {
           padding: 10px 14px;
           border-radius: var(--radius-sm);
-          font-size: 0.88rem;
-          line-height: 1.4;
+          font-size: 0.85rem;
+          line-height: 1.45;
           position: relative;
         }
 
         .user-row .message-bubble {
-          background: linear-gradient(135deg, var(--secondary) 0%, rgba(var(--secondary-rgb), 0.4) 100%);
-          color: var(--text-bright);
+          background: var(--primary);
+          color: #ffffff;
           border-top-right-radius: 0;
+          box-shadow: 0 4px 12px rgba(91, 33, 182, 0.15);
         }
 
         .bot-row .message-bubble {
-          background: rgba(255, 255, 255, 0.05);
+          background: var(--bg-deep);
           color: var(--text-normal);
           border-top-left-radius: 0;
           border: 1px solid var(--border-glass);
         }
 
         .message-time {
-          font-size: 0.65rem;
+          font-size: 0.62rem;
           color: var(--text-muted);
           display: block;
           margin-top: 4px;
@@ -429,11 +431,11 @@ const Chatbot = ({ setCurrentPage }) => {
         }
 
         .thinking-bubble .dot {
-          width: 6px;
-          height: 6px;
-          background: var(--primary);
+          width: 4px;
+          height: 4px;
+          background: var(--text-muted);
           border-radius: 50%;
-          animation: pulseGlow 1.2s infinite ease-in-out;
+          animation: floatElement 1.2s infinite ease-in-out;
         }
 
         .thinking-bubble .dot:nth-child(2) {
@@ -451,74 +453,75 @@ const Chatbot = ({ setCurrentPage }) => {
           gap: 8px;
           overflow-x: auto;
           white-space: nowrap;
-          border-top: 1px solid rgba(255, 255, 255, 0.03);
-          background: rgba(3, 7, 18, 0.1);
+          border-top: 1px solid var(--border-glass);
+          background: var(--bg-deep);
         }
 
         .chat-chips-container::-webkit-scrollbar {
-          height: 3px;
+          height: 2px;
         }
 
         .chip-btn {
-          padding: 6px 12px;
-          background: rgba(0, 240, 255, 0.05);
-          border: 1px solid rgba(0, 240, 255, 0.2);
-          color: var(--primary);
-          font-family: var(--font-header);
-          font-size: 0.78rem;
+          padding: 5px 12px;
+          background: #ffffff;
+          border: 1px solid var(--border-glass);
+          color: var(--text-normal);
+          font-family: var(--font-badge);
+          font-size: 0.72rem;
           border-radius: 50px;
           cursor: pointer;
           transition: var(--transition-fast);
         }
 
         .chip-btn:hover {
-          background: rgba(0, 240, 255, 0.12);
           border-color: var(--primary);
-          box-shadow: 0 0 8px rgba(0, 240, 255, 0.15);
+          color: var(--primary);
+          background: rgba(91, 33, 182, 0.02);
         }
 
         /* Input Form */
         .chat-input-form {
           display: flex;
-          padding: 14px 16px;
-          background: rgba(3, 7, 18, 0.3);
+          padding: 12px 16px;
+          background: #ffffff;
           border-top: 1px solid var(--border-glass);
-          gap: 10px;
+          gap: 8px;
         }
 
         .chat-input {
           flex-grow: 1;
-          background: rgba(255, 255, 255, 0.03);
+          background: var(--bg-deep);
           border: 1px solid var(--border-glass);
           border-radius: var(--radius-sm);
-          padding: 10px 14px;
+          padding: 8px 12px;
           color: var(--text-bright);
-          font-size: 0.88rem;
+          font-size: 0.85rem;
           font-family: var(--font-body);
         }
 
         .chat-input:focus {
           outline: none;
           border-color: var(--primary);
+          background: #ffffff;
         }
 
         .chat-send-btn {
-          width: 38px;
-          height: 38px;
-          background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+          width: 34px;
+          height: 34px;
+          background: var(--primary);
           border: none;
-          color: var(--bg-deep);
+          color: #ffffff;
           border-radius: var(--radius-sm);
           display: flex;
           align-items: center;
           justify-content: center;
           cursor: pointer;
-          transition: var(--transition-smooth);
+          transition: var(--transition-fast);
+          box-shadow: 0 4px 10px rgba(91, 33, 182, 0.15);
         }
 
         .chat-send-btn:hover {
-          filter: brightness(1.1);
-          box-shadow: var(--shadow-neon-cyan);
+          background: hsl(263, 69%, 36%);
         }
 
         @media (max-width: 576px) {

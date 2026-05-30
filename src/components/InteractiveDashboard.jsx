@@ -103,13 +103,13 @@ const InteractiveDashboard = () => {
         {/* Navigation Selector */}
         <div className="sandbox-tabs">
           <button className={`sandbox-tab-btn ${activeTab === 'recruitment' ? 'active' : ''}`} onClick={() => setActiveTab('recruitment')}>
-            Workforce AI Hiring
+            Workforce AI Sourcing
           </button>
           <button className={`sandbox-tab-btn ${activeTab === 'healthcare' ? 'active' : ''}`} onClick={() => setActiveTab('healthcare')}>
-            Healthcare Consulting
+            Healthcare Clinic Hub
           </button>
           <button className={`sandbox-tab-btn ${activeTab === 'commerce' ? 'active' : ''}`} onClick={() => setActiveTab('commerce')}>
-            Commerce Analytics
+            Commerce Stock Predictor
           </button>
         </div>
       </div>
@@ -123,10 +123,10 @@ const InteractiveDashboard = () => {
               <p>Simulate screening applicant resumes using our vector parsing modules.</p>
               
               <div className="btn-group">
-                <button disabled={scanning} onClick={() => handleScanResume('arjun')} className="btn-secondary">
+                <button disabled={scanning} onClick={() => handleScanResume('arjun')} className="btn-secondary select-btn">
                   Scan Arjun's Resume (Cloud Architect)
                 </button>
-                <button disabled={scanning} onClick={() => handleScanResume('priya')} className="btn-secondary">
+                <button disabled={scanning} onClick={() => handleScanResume('priya')} className="btn-secondary select-btn">
                   Scan Priya's Resume (AI Engineer)
                 </button>
               </div>
@@ -277,6 +277,8 @@ const InteractiveDashboard = () => {
           padding: 40px;
           margin-top: 40px;
           width: 100%;
+          background: #ffffff;
+          border-color: var(--border-glass);
         }
 
         .sandbox-header {
@@ -290,7 +292,7 @@ const InteractiveDashboard = () => {
         }
 
         .sandbox-subtitle {
-          color: var(--text-muted);
+          color: var(--text-normal);
           max-width: 600px;
           margin: 0 auto 30px auto;
         }
@@ -302,18 +304,20 @@ const InteractiveDashboard = () => {
           gap: 12px;
           border-bottom: 1px solid var(--border-glass);
           padding-bottom: 2px;
-          max-width: 550px;
+          max-width: 580px;
           margin: 0 auto;
         }
 
         .sandbox-tab-btn {
           background: none;
           border: none;
-          color: var(--text-muted);
+          color: var(--text-normal);
           padding: 10px 20px;
-          font-family: var(--font-header);
+          font-family: var(--font-badge);
           font-weight: 600;
-          font-size: 0.95rem;
+          font-size: 0.9rem;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
           cursor: pointer;
           transition: var(--transition-fast);
           position: relative;
@@ -335,7 +339,6 @@ const InteractiveDashboard = () => {
           width: 100%;
           height: 2px;
           background: var(--primary);
-          box-shadow: 0 0 8px var(--primary);
         }
 
         /* Sandbox Body Layout */
@@ -382,12 +385,15 @@ const InteractiveDashboard = () => {
 
         .select-btn {
           padding: 12px 20px;
-          background: rgba(255, 255, 255, 0.02);
+          background: var(--bg-deep);
           border: 1px solid var(--border-glass);
           color: var(--text-normal);
           text-align: left;
-          font-family: var(--font-header);
-          font-weight: 500;
+          font-family: var(--font-badge);
+          font-weight: 600;
+          font-size: 0.85rem;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
           border-radius: var(--radius-sm);
           cursor: pointer;
           transition: var(--transition-fast);
@@ -395,25 +401,25 @@ const InteractiveDashboard = () => {
 
         .select-btn:hover, .select-btn.active {
           border-color: var(--primary);
-          background: rgba(0, 240, 255, 0.06);
+          background: rgba(91, 33, 182, 0.04);
           color: var(--primary);
-          box-shadow: 0 0 10px rgba(0, 240, 255, 0.1);
         }
 
         /* Display Panel Layout */
         .display-panel {
           min-height: 280px;
           padding: 30px;
-          background: rgba(3, 7, 18, 0.4);
-          border-color: rgba(255, 255, 255, 0.04);
+          background: var(--bg-deep);
+          border-color: var(--border-glass);
           display: flex;
           flex-direction: column;
           justify-content: center;
+          box-shadow: none;
         }
 
         .placeholder-text {
           text-align: center;
-          color: var(--text-muted);
+          color: var(--text-normal);
           font-size: 0.95rem;
         }
 
@@ -475,7 +481,7 @@ const InteractiveDashboard = () => {
           justify-content: space-between;
           align-items: center;
           margin-bottom: 16px;
-          border-bottom: 1px solid rgba(255,255,255,0.05);
+          border-bottom: 1px solid var(--border-glass);
           padding-bottom: 10px;
         }
 
@@ -485,15 +491,14 @@ const InteractiveDashboard = () => {
         }
 
         .match-score, .peak-hour {
-          font-family: var(--font-header);
+          font-family: var(--font-badge);
           font-weight: 700;
           font-size: 0.9rem;
           color: var(--primary);
-          text-shadow: 0 0 6px var(--primary);
         }
 
         .risk-tag {
-          font-family: var(--font-header);
+          font-family: var(--font-badge);
           font-weight: 700;
           font-size: 0.8rem;
           text-transform: uppercase;
@@ -501,9 +506,9 @@ const InteractiveDashboard = () => {
           border-radius: 4px;
         }
 
-        .risk-tag.healthy { background: rgba(0, 240, 255, 0.1); color: var(--primary); }
-        .risk-tag.moderate { background: rgba(255, 107, 0, 0.1); color: var(--accent); }
-        .risk-tag.low { background: rgba(59, 130, 246, 0.1); color: var(--secondary); }
+        .risk-tag.healthy { background: rgba(91, 33, 182, 0.08); color: var(--primary); }
+        .risk-tag.moderate { background: rgba(221, 125, 98, 0.1); color: var(--accent); }
+        .risk-tag.low { background: rgba(197, 168, 128, 0.1); color: var(--secondary); }
 
         .skills-grid {
           display: flex;
@@ -515,8 +520,8 @@ const InteractiveDashboard = () => {
         .skill-tag {
           font-size: 0.8rem;
           padding: 4px 10px;
-          background: rgba(255,255,255,0.03);
-          border: 1px solid rgba(255,255,255,0.06);
+          background: #ffffff;
+          border: 1px solid var(--border-glass);
           border-radius: 4px;
           color: var(--text-normal);
         }
@@ -527,15 +532,17 @@ const InteractiveDashboard = () => {
         }
 
         .result-summary {
-          background: rgba(255,255,255,0.02);
-          border-left: 3px solid var(--accent);
+          background: #ffffff;
+          border-left: 3px solid var(--primary);
           padding: 14px;
           border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+          border: 1px solid var(--border-glass);
+          border-left: 3px solid var(--primary);
         }
 
         .result-summary h5 {
           font-size: 0.9rem;
-          color: var(--accent);
+          color: var(--primary);
           margin-bottom: 6px;
         }
 
@@ -543,6 +550,7 @@ const InteractiveDashboard = () => {
           font-size: 0.88rem;
           line-height: 1.5;
           margin-bottom: 0;
+          color: var(--text-normal);
         }
 
         /* Chart Graphic styling */
@@ -552,7 +560,7 @@ const InteractiveDashboard = () => {
           align-items: flex-end;
           height: 100px;
           margin: 16px 0;
-          border-bottom: 1px solid rgba(255,255,255,0.1);
+          border-bottom: 1px solid var(--border-glass);
           padding-bottom: 4px;
         }
 
@@ -565,14 +573,13 @@ const InteractiveDashboard = () => {
 
         .bar {
           width: 20px;
-          background: rgba(255,255,255,0.1);
+          background: rgba(15, 23, 42, 0.05);
           border-radius: 4px 4px 0 0;
           transition: all 0.6s ease;
         }
 
         .bar.highlight {
-          background: linear-gradient(to top, var(--secondary), var(--primary));
-          box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+          background: linear-gradient(to top, var(--primary), var(--secondary));
         }
 
         .bar-column span {

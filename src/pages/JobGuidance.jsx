@@ -276,27 +276,27 @@ const JobGuidance = () => {
           min-height: 65vh;
           text-align: center;
           padding: 0 10%;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-          background: radial-gradient(circle at 50% 30%, rgba(var(--primary-rgb), 0.05) 0%, transparent 60%);
+          border-bottom: 1px solid var(--border-glass);
+          background: radial-gradient(circle at 50% 30%, rgba(var(--primary-rgb), 0.08) 0%, transparent 60%);
         }
-
+ 
         .header-text {
           max-width: 800px;
           margin-top: 60px;
         }
-
+ 
         .header-text h1 {
           font-size: 3.5rem;
           margin-bottom: 24px;
           line-height: 1.15;
         }
-
+ 
         .header-text p {
           font-size: 1.15rem;
           line-height: 1.7;
           color: var(--text-normal);
         }
-
+ 
         /* Grader card */
         .grader-box {
           display: grid;
@@ -306,63 +306,121 @@ const JobGuidance = () => {
           max-width: 1000px;
           margin: 0 auto;
         }
-
+ 
         .grader-inputs {
           display: flex;
           flex-direction: column;
           justify-content: center;
         }
-
+ 
         .grader-form textarea {
           width: 100%;
           padding: 14px;
-          background: rgba(255,255,255,0.03);
+          background: var(--bg-deep);
           border: 1px solid var(--border-glass);
           border-radius: var(--radius-sm);
           color: var(--text-bright);
           font-family: var(--font-body);
           font-size: 0.88rem;
+          transition: var(--transition-fast);
         }
 
+        .grader-form textarea:focus {
+          outline: none;
+          border-color: var(--primary);
+          background: #ffffff;
+          box-shadow: 0 0 0 2px rgba(91, 33, 182, 0.1);
+        }
+ 
         .grader-results {
           padding: 30px;
-          background: rgba(3, 7, 18, 0.4);
-          border-color: rgba(255, 255, 255, 0.04);
+          background: var(--bg-deep);
+          border: 1px solid var(--border-glass);
+          border-radius: var(--radius-sm);
           display: flex;
           flex-direction: column;
           justify-content: center;
           min-height: 320px;
         }
 
+        .scanning-radar {
+          width: 50px;
+          height: 50px;
+          border: 3px solid rgba(91, 33, 182, 0.15);
+          border-radius: 50%;
+          border-top-color: var(--primary);
+          animation: spinRadar 1s linear infinite;
+          margin: 0 auto 20px auto;
+        }
+
+        @keyframes spinRadar {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+
+        .pulse-text {
+          font-family: var(--font-badge);
+          font-size: 0.82rem;
+          color: var(--primary);
+          font-weight: 600;
+          letter-spacing: 0.03em;
+          animation: pulseText 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulseText {
+          0%, 100% { opacity: 0.6; }
+          50% { opacity: 1; }
+        }
+ 
         .score-result-view {
           width: 100%;
         }
 
-        .score-glow {
-          font-family: var(--font-header);
-          font-weight: 800;
-          font-size: 1.1rem;
-          color: var(--primary);
-          text-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
+        .result-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          border-bottom: 1px solid var(--border-glass);
+          padding-bottom: 14px;
+          margin-bottom: 20px;
         }
 
+        .result-header h4 {
+          font-size: 1.25rem;
+          color: var(--text-bright);
+          margin-bottom: 0;
+        }
+ 
+        .score-glow {
+          font-family: var(--font-badge);
+          font-weight: 800;
+          font-size: 0.95rem;
+          color: var(--primary);
+          background: rgba(91, 33, 182, 0.06);
+          border: 1px solid rgba(91, 33, 182, 0.12);
+          padding: 4px 12px;
+          border-radius: 4px;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        }
+ 
         .metrics-summary p {
           font-size: 0.85rem;
           margin-bottom: 8px;
         }
-
+ 
         .metrics-summary ul {
           list-style: none;
           display: flex;
           flex-direction: column;
           gap: 6px;
         }
-
+ 
         .metrics-summary li {
           font-size: 0.8rem;
           color: var(--text-normal);
         }
-
+ 
         /* Program cards */
         .program-detail-card {
           padding: 40px 30px;
@@ -370,79 +428,157 @@ const JobGuidance = () => {
           flex-direction: column;
           gap: 16px;
         }
-
+ 
         .program-detail-card h3 {
           font-size: 1.3rem;
           color: var(--primary);
         }
-
+ 
         .program-detail-card p {
           font-size: 0.88rem;
           line-height: 1.6;
           color: var(--text-normal);
           margin-bottom: 0;
         }
-
+ 
         /* Mentors list select */
         .mentors-grid-select {
           display: flex;
           flex-direction: column;
           gap: 10px;
         }
-
+ 
         .mentor-select-btn {
           padding: 14px 20px;
-          background: rgba(255,255,255,0.01);
+          background: #ffffff;
           border: 1px solid var(--border-glass);
           border-radius: var(--radius-sm);
           color: var(--text-normal);
           text-align: left;
           cursor: pointer;
           transition: var(--transition-fast);
+          box-shadow: var(--shadow-premium);
         }
-
+ 
         .mentor-select-btn h5 {
           font-size: 0.95rem;
           color: var(--text-bright);
           margin-bottom: 2px;
         }
-
+ 
         .mentor-select-btn span {
           font-size: 0.72rem;
           color: var(--text-muted);
         }
-
+ 
         .mentor-select-btn:hover, .mentor-select-btn.active {
           border-color: var(--accent);
-          background: rgba(255, 107, 0, 0.05);
+          background: rgba(221, 125, 98, 0.05);
         }
-
+ 
         .mentor-select-btn.active h5 {
           color: var(--accent);
         }
-
+ 
         .mentor-intro h2 {
           font-size: 2.3rem;
           margin: 10px 0 20px 0;
         }
-
+ 
         .mentor-intro p {
           font-size: 1.05rem;
           line-height: 1.6;
           margin-bottom: 20px;
         }
-
+ 
         .mentor-scheduler-panel {
           padding: 40px;
-          background: rgba(3, 7, 18, 0.5);
+          background: #ffffff;
+          border: 1px solid var(--border-glass);
+          border-radius: var(--radius-md);
+          box-shadow: var(--shadow-premium-hover);
         }
 
+        .mentor-booking-form h3 {
+          font-size: 1.5rem;
+          color: var(--text-bright);
+          margin-bottom: 20px;
+          border-bottom: 1px solid var(--border-glass);
+          padding-bottom: 10px;
+        }
+
+        .mentor-booking-form .form-group {
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+        }
+
+        .mentor-booking-form .form-group label {
+          font-family: var(--font-badge);
+          font-size: 0.8rem;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          color: var(--text-normal);
+        }
+
+        .mentor-booking-form .date-input, .mentor-booking-form .select-input {
+          padding: 12px 14px;
+          background: var(--bg-deep);
+          border: 1px solid var(--border-glass);
+          border-radius: var(--radius-sm);
+          color: var(--text-bright);
+          font-family: var(--font-body);
+          font-size: 0.9rem;
+          transition: var(--transition-fast);
+          width: 100%;
+        }
+
+        .mentor-booking-form .date-input:focus, .mentor-booking-form .select-input:focus {
+          outline: none;
+          border-color: var(--primary);
+          background: #ffffff;
+          box-shadow: 0 0 0 2px rgba(91, 33, 182, 0.1);
+        }
+
+        .booking-success-anim h3 {
+          font-size: 1.8rem;
+          color: var(--text-bright);
+          margin-top: 14px;
+          margin-bottom: 8px;
+        }
+
+        .booking-success-anim p {
+          font-size: 0.95rem;
+          color: var(--text-normal);
+        }
+
+        .success-badge {
+          display: inline-block;
+          font-family: var(--font-badge);
+          font-size: 0.78rem;
+          font-weight: 600;
+          color: var(--primary);
+          background: rgba(91, 33, 182, 0.06);
+          border: 1px solid rgba(91, 33, 182, 0.12);
+          padding: 4px 12px;
+          border-radius: 4px;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        }
+
+        .sub-note {
+          font-size: 0.9rem;
+          color: var(--primary);
+          font-weight: 600;
+        }
+ 
         @media (max-width: 992px) {
           .grader-box {
             grid-template-columns: 1fr;
           }
         }
-
+ 
         @media (max-width: 768px) {
           .guidance-header h1 {
             font-size: 2.3rem;

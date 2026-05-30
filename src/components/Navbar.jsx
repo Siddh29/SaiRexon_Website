@@ -35,9 +35,9 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
       <nav className={`navbar-container ${scrolled ? 'scrolled' : ''}`}>
         <div className="navbar-logo" onClick={() => handleNavClick('home')}>
           <div className="logo-icon">
-            <svg viewBox="0 0 100 100" width="36" height="36">
-              <polygon points="50,15 90,80 10,80" stroke="var(--primary)" strokeWidth="8" fill="none" className="logo-poly" />
-              <circle cx="50" cy="50" r="10" fill="var(--accent)" />
+            <svg viewBox="0 0 100 100" width="32" height="32">
+              <polygon points="50,15 90,80 10,80" stroke="var(--primary)" strokeWidth="8" fill="none" />
+              <circle cx="50" cy="50" r="10" fill="var(--secondary)" />
             </svg>
           </div>
           <span className="logo-text">
@@ -94,7 +94,7 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
           top: 0;
           left: 0;
           width: 100%;
-          padding: 24px 8%;
+          padding: 24px 10%;
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -104,12 +104,12 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
         }
 
         .navbar-container.scrolled {
-          padding: 14px 8%;
-          background: hsla(224, 71%, 4%, 0.75);
-          backdrop-filter: blur(16px) saturate(180%);
-          -webkit-backdrop-filter: blur(16px) saturate(180%);
+          padding: 16px 10%;
+          background: rgba(250, 249, 246, 0.85);
+          backdrop-filter: blur(20px) saturate(120%);
+          -webkit-backdrop-filter: blur(20px) saturate(120%);
           border-bottom: 1px solid var(--border-glass);
-          box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+          box-shadow: 0 10px 30px -15px rgba(15, 23, 42, 0.05);
         }
 
         .navbar-logo {
@@ -125,22 +125,16 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
           justify-content: center;
         }
 
-        .logo-poly {
-          transform-origin: center;
-          animation: pulseGlow 3s ease-in-out infinite;
-        }
-
         .logo-text {
-          font-family: var(--font-header);
-          font-weight: 800;
-          font-size: 1.5rem;
-          letter-spacing: 1.5px;
+          font-family: var(--font-badge);
+          font-weight: 700;
+          font-size: 1.4rem;
+          letter-spacing: -0.01em;
           color: var(--text-bright);
         }
 
         .logo-text .highlight {
           color: var(--primary);
-          text-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
         }
 
         .navbar-links {
@@ -153,9 +147,11 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
           background: none;
           border: none;
           color: var(--text-normal);
-          font-family: var(--font-header);
-          font-weight: 500;
-          font-size: 0.95rem;
+          font-family: var(--font-badge);
+          font-weight: 600;
+          font-size: 0.9rem;
+          letter-spacing: 0.02em;
+          text-transform: uppercase;
           cursor: pointer;
           position: relative;
           padding: 8px 0;
@@ -173,7 +169,6 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
           width: 0;
           height: 2px;
           background: var(--primary);
-          box-shadow: 0 0 8px var(--primary);
           transition: var(--transition-smooth);
           transform: translateX(-50%);
         }
@@ -188,19 +183,23 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
 
         .nav-btn-consultation {
           padding: 10px 22px;
-          background: transparent;
-          color: var(--accent);
-          font-family: var(--font-header);
+          background: var(--primary);
+          color: #ffffff;
+          font-family: var(--font-badge);
           font-weight: 600;
-          border: 1px solid var(--accent);
+          font-size: 0.85rem;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+          border: none;
           border-radius: var(--radius-sm);
           cursor: pointer;
-          transition: var(--transition-smooth);
+          transition: var(--transition-fast);
+          box-shadow: 0 4px 12px rgba(91, 33, 182, 0.15);
         }
 
         .nav-btn-consultation:hover {
-          background: rgba(255, 107, 0, 0.1);
-          box-shadow: var(--shadow-neon-orange);
+          background: hsl(263, 69%, 36%);
+          box-shadow: 0 6px 16px rgba(91, 33, 182, 0.25);
           transform: translateY(-1px);
         }
 
@@ -209,8 +208,8 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
           display: none;
           flex-direction: column;
           justify-content: space-between;
-          width: 26px;
-          height: 18px;
+          width: 22px;
+          height: 15px;
           background: transparent;
           border: none;
           cursor: pointer;
@@ -221,14 +220,13 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
           width: 100%;
           height: 2px;
           background-color: var(--text-bright);
-          border-radius: 2px;
           transition: var(--transition-smooth);
           transform-origin: left center;
         }
 
         /* Burger Animations */
         .burger-menu.active .burger-bar:nth-child(1) {
-          transform: rotate(45deg) translate(2px, -2px);
+          transform: rotate(45deg) translate(2px, -1px);
           background-color: var(--primary);
         }
 
@@ -238,7 +236,7 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
         }
 
         .burger-menu.active .burger-bar:nth-child(3) {
-          transform: rotate(-45deg) translate(2px, 2px);
+          transform: rotate(-45deg) translate(2px, 1px);
           background-color: var(--primary);
         }
 
@@ -247,13 +245,13 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
           position: fixed;
           top: 0;
           right: 0;
-          width: 300px;
+          width: 290px;
           height: 100vh;
-          background: hsla(224, 71%, 4%, 0.95);
+          background: rgba(255, 255, 255, 0.98);
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
           border-left: 1px solid var(--border-glass);
-          box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+          box-shadow: -10px 0 30px rgba(15, 23, 42, 0.05);
           z-index: 101;
           display: flex;
           align-items: center;
@@ -269,7 +267,7 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
         .mobile-links-container {
           display: flex;
           flex-direction: column;
-          gap: 30px;
+          gap: 24px;
           width: 100%;
         }
 
@@ -277,41 +275,46 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
           background: none;
           border: none;
           color: var(--text-normal);
-          font-family: var(--font-header);
+          font-family: var(--font-badge);
           font-weight: 600;
-          font-size: 1.4rem;
+          font-size: 1.15rem;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
           text-align: left;
           cursor: pointer;
           transition: var(--transition-fast);
           padding: 8px 0;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+          border-bottom: 1px solid rgba(15, 23, 42, 0.04);
         }
 
         .mobile-nav-link:hover, .mobile-nav-link.active {
           color: var(--primary);
-          padding-left: 8px;
+          padding-left: 6px;
         }
 
         .mobile-btn-consultation {
-          margin-top: 20px;
-          padding: 14px;
-          background: linear-gradient(135deg, var(--accent) 0%, #ff8c00 100%);
-          color: var(--text-bright);
+          margin-top: 16px;
+          padding: 12px;
+          background: var(--primary);
+          color: #ffffff;
           border: none;
-          font-family: var(--font-header);
+          font-family: var(--font-badge);
           font-weight: 600;
-          font-size: 1.1rem;
+          font-size: 0.9rem;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
           border-radius: var(--radius-sm);
           cursor: pointer;
           text-align: center;
+          box-shadow: 0 4px 12px rgba(91, 33, 182, 0.15);
         }
 
         @media (max-width: 768px) {
           .navbar-container {
-            padding: 20px 5%;
+            padding: 20px 6%;
           }
           .navbar-container.scrolled {
-            padding: 14px 5%;
+            padding: 16px 6%;
           }
           .navbar-links {
             display: none;

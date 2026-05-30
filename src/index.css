@@ -1,42 +1,43 @@
 /* ==========================================================================
-   SAIREXON TECHNOLOGIES - ADVANCED DESIGN SYSTEM
+   SAIREXON TECHNOLOGIES - WARM LIGHT-THEMED EDITORIAL DESIGN SYSTEM
    ========================================================================== */
 
 /* 1. Core Variables & Theme Setup */
 :root {
-  --font-header: 'Outfit', sans-serif;
+  --font-header: 'Lora', Georgia, serif;
   --font-body: 'Inter', sans-serif;
+  --font-badge: 'Outfit', sans-serif;
 
-  /* Color Palette - HSL Cyberpunk Theme */
-  --bg-deep: hsl(224, 71%, 4%);
-  --bg-card: hsla(222, 47%, 11%, 0.65);
-  --bg-card-hover: hsla(222, 47%, 16%, 0.85);
+  /* Color Palette - Alabaster Cream & Deep Violet Theme (Luxury Editorial) */
+  --bg-deep: hsl(36, 20%, 97%);           /* Alabaster Warm White/Cream */
+  --bg-card: hsl(0, 0%, 100%);             /* Pure Paper White */
+  --bg-card-hover: hsl(36, 20%, 95%);
   
-  --primary: hsl(184, 100%, 50%);         /* Electric Cyber Cyan */
-  --primary-rgb: 0, 240, 255;
-  --secondary: hsl(217, 91%, 60%);       /* Royal Power Blue */
-  --secondary-rgb: 59, 130, 246;
-  --accent: hsl(25, 100%, 50%);          /* Bright Neon Orange Accent */
-  --accent-rgb: 255, 107, 0;
+  --primary: hsl(263, 69%, 42%);          /* Luxurious Deep Violet */
+  --primary-rgb: 91, 33, 182;
+  --secondary: hsl(36, 40%, 64%);         /* Muted Sand Gold / Champagne */
+  --secondary-rgb: 197, 168, 128;
+  --accent: hsl(14, 60%, 63%);            /* Soft Warm Terracotta */
+  --accent-rgb: 221, 125, 98;
 
-  --text-bright: hsl(219, 14%, 96%);     /* Diamond White */
-  --text-normal: hsl(215, 16%, 80%);     /* Light Grey */
-  --text-muted: hsl(215, 16%, 58%);      /* Cyber Grey */
+  --text-bright: hsl(222, 47%, 11%);      /* Velvet Deep Charcoal */
+  --text-normal: hsl(215, 16%, 28%);      /* Slate Grey */
+  --text-muted: hsl(215, 16%, 48%);       /* Soft Muted Grey */
 
   /* UI Tokens */
-  --border-glass: rgba(255, 255, 255, 0.08);
-  --border-glow: rgba(0, 240, 255, 0.25);
-  --border-glow-orange: rgba(255, 107, 0, 0.25);
+  --border-glass: rgba(15, 23, 42, 0.06);
+  --border-glow: rgba(91, 33, 182, 0.12);
+  --border-glow-gold: rgba(197, 168, 128, 0.2);
   
-  --shadow-neon-cyan: 0 0 20px rgba(0, 240, 255, 0.2);
-  --shadow-neon-orange: 0 0 20px rgba(255, 107, 0, 0.25);
+  --shadow-premium: 0 20px 40px -25px rgba(15, 23, 42, 0.07), 0 1px 3px rgba(15, 23, 42, 0.02);
+  --shadow-premium-hover: 0 30px 60px -25px rgba(15, 23, 42, 0.12), 0 1px 5px rgba(15, 23, 42, 0.03);
   
-  --transition-smooth: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
-  --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
   
-  --radius-sm: 8px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
+  --radius-sm: 6px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
 }
 
 /* 2. Global Reset & Scrollbars */
@@ -61,13 +62,15 @@ body {
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
-  line-height: 1.6;
+  line-height: 1.65;
+  letter-spacing: -0.01em;
+  background: var(--bg-deep);
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -75,20 +78,21 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsla(184, 100%, 50%, 0.2);
-  border-radius: 4px;
+  background: rgba(15, 23, 42, 0.1);
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsla(184, 100%, 50%, 0.4);
+  background: rgba(15, 23, 42, 0.2);
 }
 
 /* 3. Typography Styles */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-header);
   color: var(--text-bright);
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.2;
+  letter-spacing: -0.02em;
 }
 
 p {
@@ -101,22 +105,20 @@ a {
   transition: var(--transition-fast);
 }
 
-/* 4. Structural Background & Glows */
+/* Faint Dot Grid Background (Warm & Organic) */
 .cyber-grid {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-  background-size: 50px 50px;
-  background-position: center center;
+  background-image: radial-gradient(rgba(15, 23, 42, 0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
   z-index: -2;
   pointer-events: none;
 }
 
+/* Soft Warm Ambient Lights (Subtle Depth Indicators) */
 .ambient-glows {
   position: fixed;
   top: 0;
@@ -129,22 +131,22 @@ a {
 
 .glow-spot-1 {
   position: absolute;
-  top: 15%;
-  right: 10%;
+  top: 10%;
+  right: 15%;
   width: 45vw;
   height: 45vw;
-  background: radial-gradient(circle, rgba(var(--secondary-rgb), 0.12) 0%, transparent 70%);
-  filter: blur(80px);
+  background: radial-gradient(circle, rgba(var(--secondary-rgb), 0.15) 0%, transparent 70%);
+  filter: blur(120px);
 }
 
 .glow-spot-2 {
   position: absolute;
-  bottom: 20%;
+  bottom: 15%;
   left: 5%;
   width: 50vw;
   height: 50vw;
-  background: radial-gradient(circle, rgba(var(--primary-rgb), 0.09) 0%, transparent 70%);
-  filter: blur(100px);
+  background: radial-gradient(circle, rgba(var(--primary-rgb), 0.05) 0%, transparent 70%);
+  filter: blur(130px);
 }
 
 .glow-spot-3 {
@@ -154,96 +156,78 @@ a {
   width: 35vw;
   height: 35vw;
   background: radial-gradient(circle, rgba(var(--accent-rgb), 0.06) 0%, transparent 75%);
-  filter: blur(90px);
+  filter: blur(100px);
 }
 
-/* 5. Glassmorphism & UI Accents */
+/* 5. Pure Paper Panels & Containers */
 .glass-panel {
   background: var(--bg-card);
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
   border: 1px solid var(--border-glass);
   border-radius: var(--radius-md);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  box-shadow: var(--shadow-premium);
   transition: var(--transition-smooth);
 }
 
 .glass-panel:hover {
-  border-color: rgba(0, 240, 255, 0.15);
-  background: var(--bg-card-hover);
+  border-color: rgba(15, 23, 42, 0.1);
+  box-shadow: var(--shadow-premium-hover);
+  transform: translateY(-2px);
 }
 
 .glass-panel.glowing-cyan {
   border-color: var(--border-glow);
-  box-shadow: var(--shadow-neon-cyan), 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(91, 33, 182, 0.04), var(--shadow-premium);
 }
 
 .glass-panel.glowing-orange {
-  border-color: var(--border-glow-orange);
-  box-shadow: var(--shadow-neon-orange), 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  border-color: var(--border-glow-gold);
+  box-shadow: 0 10px 30px rgba(197, 168, 128, 0.08), var(--shadow-premium);
 }
 
-/* Neon Text Gradient */
+/* Gradient Text (Luxurious Purple to Sand Gold) */
 .text-gradient-cyan {
-  background: linear-gradient(135deg, var(--text-bright) 20%, var(--primary) 100%);
+  background: linear-gradient(135deg, var(--text-bright) 30%, var(--primary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-orange {
-  background: linear-gradient(135deg, var(--text-bright) 20%, var(--accent) 100%);
+  background: linear-gradient(135deg, var(--text-bright) 30%, var(--secondary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-dual {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* 6. Custom Premium Buttons */
+/* 6. Human-Designed Premium Buttons (Elegant & Solid) */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   padding: 12px 28px;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  color: var(--bg-deep);
-  font-family: var(--font-header);
+  background: var(--primary);
+  color: #ffffff;
+  font-family: var(--font-badge);
   font-weight: 600;
+  font-size: 0.92rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
   border: none;
   border-radius: var(--radius-sm);
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0, 240, 255, 0.3);
-  transition: var(--transition-smooth);
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-}
-
-.btn-primary::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
-  opacity: 0;
-  z-index: -1;
-  transition: var(--transition-smooth);
+  box-shadow: 0 8px 20px rgba(91, 33, 182, 0.18);
+  transition: var(--transition-fast);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 240, 255, 0.5), 0 0 10px rgba(255, 107, 0, 0.2);
-  color: var(--text-bright);
-}
-
-.btn-primary:hover::before {
-  opacity: 1;
+  background: hsl(263, 69%, 36%);
+  box-shadow: 0 12px 25px rgba(91, 33, 182, 0.28);
 }
 
 .btn-secondary {
@@ -253,21 +237,20 @@ a {
   gap: 8px;
   padding: 12px 28px;
   background: transparent;
-  color: var(--primary);
-  font-family: var(--font-header);
+  color: var(--text-bright);
+  font-family: var(--font-badge);
   font-weight: 600;
-  border: 1px solid var(--primary);
+  font-size: 0.92rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border: 1px solid var(--text-bright);
   border-radius: var(--radius-sm);
   cursor: pointer;
-  transition: var(--transition-smooth);
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
+  transition: var(--transition-fast);
 }
 
 .btn-secondary:hover {
-  background: rgba(0, 240, 255, 0.1);
-  box-shadow: var(--shadow-neon-cyan);
+  background: rgba(15, 23, 42, 0.04);
   transform: translateY(-2px);
 }
 
@@ -277,32 +260,35 @@ a {
   justify-content: center;
   gap: 8px;
   padding: 12px 28px;
-  background: linear-gradient(135deg, var(--accent) 0%, #ff8c00 100%);
-  color: var(--text-bright);
-  font-family: var(--font-header);
+  background: var(--bg-card);
+  color: var(--primary);
+  font-family: var(--font-badge);
   font-weight: 600;
-  border: none;
+  font-size: 0.92rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border: 1.5px solid var(--primary);
   border-radius: var(--radius-sm);
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
-  transition: var(--transition-smooth);
+  transition: var(--transition-fast);
+  box-shadow: var(--shadow-premium);
 }
 
 .btn-accent:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 107, 0, 0.5);
-  filter: brightness(1.1);
+  background: rgba(91, 33, 182, 0.03);
+  box-shadow: var(--shadow-premium-hover);
 }
 
 /* 7. Keyframes & Animations */
 @keyframes pulseGlow {
   0%, 100% {
-    opacity: 0.6;
+    opacity: 0.7;
     transform: scale(1);
   }
   50% {
-    opacity: 0.9;
-    transform: scale(1.05);
+    opacity: 1;
+    transform: scale(1.03);
   }
 }
 
@@ -311,14 +297,14 @@ a {
     transform: translateY(0px);
   }
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
   }
 }
 
 @keyframes slideUpFade {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(18px);
   }
   to {
     opacity: 1;
@@ -326,29 +312,18 @@ a {
   }
 }
 
-@keyframes slideInRight {
-  from {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
 .animate-float {
-  animation: floatElement 4s ease-in-out infinite;
+  animation: floatElement 5s ease-in-out infinite;
 }
 
 .animate-fade-in {
-  animation: slideUpFade 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation: slideUpFade 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* Responsive Grid Helpers */
 .grid-container {
   display: grid;
-  gap: 2rem;
+  gap: 1.8rem;
   width: 100%;
 }
 
@@ -378,18 +353,18 @@ a {
     grid-template-columns: 1fr;
   }
   html {
-    font-size: 14px;
+    font-size: 15px;
   }
 }
 
 /* Layout Utilities */
 .section-padding {
-  padding: 100px 8% 80px 8%;
+  padding: 120px 10% 100px 10%;
 }
 
 @media (max-width: 768px) {
   .section-padding {
-    padding: 80px 5% 50px 5%;
+    padding: 90px 6% 70px 6%;
   }
 }
 
@@ -399,33 +374,34 @@ a {
   justify-content: center;
 }
 
+/* Editorial Badges (Elegant & Simple) */
 .badge {
   display: inline-block;
-  padding: 6px 14px;
-  border-radius: 50px;
-  font-family: var(--font-header);
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-family: var(--font-badge);
   font-weight: 600;
-  font-size: 0.8rem;
-  letter-spacing: 1px;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(15, 23, 42, 0.08);
   margin-bottom: 1rem;
 }
 
 .badge.cyan {
-  background: rgba(0, 240, 255, 0.1);
-  border-color: rgba(0, 240, 255, 0.2);
+  background: rgba(91, 33, 182, 0.04);
+  border-color: rgba(91, 33, 182, 0.15);
   color: var(--primary);
 }
 
 .badge.orange {
-  background: rgba(255, 107, 0, 0.1);
-  border-color: rgba(255, 107, 0, 0.2);
-  color: var(--accent);
+  background: rgba(197, 168, 128, 0.05);
+  border-color: rgba(197, 168, 128, 0.2);
+  color: var(--secondary);
 }
 
 .badge.blue {
-  background: rgba(59, 130, 246, 0.1);
-  border-color: rgba(59, 130, 246, 0.2);
-  color: var(--secondary);
+  background: rgba(221, 125, 98, 0.05);
+  border-color: rgba(221, 125, 98, 0.2);
+  color: var(--accent);
 }

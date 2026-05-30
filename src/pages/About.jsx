@@ -145,11 +145,11 @@ const About = () => {
 
       <style>{`
         .about-header {
-          min-height: 70vh;
+          min-height: 60vh;
           text-align: center;
           padding: 0 10%;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-          background: radial-gradient(circle at 50% 30%, rgba(var(--primary-rgb), 0.05) 0%, transparent 60%);
+          border-bottom: 1px solid var(--border-glass);
+          background: radial-gradient(circle at 50% 30%, rgba(var(--secondary-rgb), 0.08) 0%, transparent 60%);
         }
 
         .header-text {
@@ -172,6 +172,7 @@ const About = () => {
         /* Vision Cards */
         .vision-card {
           padding: 40px;
+          background: #ffffff;
         }
 
         .vision-card h2 {
@@ -181,17 +182,17 @@ const About = () => {
         }
 
         .vision-card p {
-          font-size: 1rem;
-          line-height: 1.6;
+          font-size: 0.98rem;
+          line-height: 1.62;
           color: var(--text-normal);
           margin-bottom: 0;
         }
 
         /* Story Section */
         .story-section {
-          background: rgba(255, 255, 255, 0.01);
-          border-top: 1px solid rgba(255,255,255,0.03);
-          border-bottom: 1px solid rgba(255,255,255,0.03);
+          background: #ffffff;
+          border-top: 1px solid var(--border-glass);
+          border-bottom: 1px solid var(--border-glass);
         }
 
         .story-content {
@@ -205,7 +206,7 @@ const About = () => {
         }
 
         .story-p {
-          font-size: 1.1rem;
+          font-size: 1.05rem;
           line-height: 1.7;
           margin-bottom: 20px;
         }
@@ -222,18 +223,19 @@ const About = () => {
           display: flex;
           flex-direction: column;
           gap: 16px;
+          background: #ffffff;
         }
 
         .val-icon-shell {
           width: 36px;
           height: 36px;
-          background: rgba(0, 240, 255, 0.05);
-          border: 1px solid rgba(0, 240, 255, 0.15);
+          background: rgba(91, 33, 182, 0.04);
+          border: 1px solid rgba(91, 33, 182, 0.12);
           border-radius: 6px;
           display: flex;
           align-items: center;
           justify-content: center;
-          font-family: var(--font-header);
+          font-family: var(--font-badge);
           font-weight: 700;
           font-size: 0.9rem;
           color: var(--primary);
@@ -258,18 +260,19 @@ const About = () => {
           display: flex;
           flex-direction: column;
           align-items: center;
+          background: #ffffff;
         }
 
         .avatar-circle {
           width: 80px;
           height: 80px;
-          background: rgba(255, 255, 255, 0.03);
+          background: var(--bg-deep);
           border: 1px solid var(--border-glass);
           border-radius: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
-          font-family: var(--font-header);
+          font-family: var(--font-badge);
           font-size: 1.5rem;
           font-weight: 700;
           color: var(--primary);
@@ -283,7 +286,7 @@ const About = () => {
           left: -4px;
           width: 86px;
           height: 86px;
-          border: 1.5px dashed var(--primary);
+          border: 1.5px dashed var(--secondary);
           border-radius: 50%;
           animation: spin 20s linear infinite;
         }
@@ -294,11 +297,12 @@ const About = () => {
         }
 
         .leader-role {
-          font-size: 0.85rem;
-          font-weight: 600;
-          color: var(--accent);
+          font-family: var(--font-badge);
+          font-size: 0.8rem;
+          font-weight: 700;
+          color: var(--secondary);
           text-transform: uppercase;
-          letter-spacing: 0.5px;
+          letter-spacing: 0.05em;
           margin-bottom: 16px;
         }
 
@@ -317,18 +321,20 @@ const About = () => {
 
         .leader-socials a {
           padding: 6px 12px;
-          background: rgba(255,255,255,0.03);
+          background: var(--bg-deep);
           border: 1px solid var(--border-glass);
           border-radius: 4px;
-          font-size: 0.78rem;
-          color: var(--text-muted);
+          font-family: var(--font-badge);
+          font-size: 0.75rem;
+          font-weight: 600;
+          color: var(--text-normal);
           transition: var(--transition-fast);
         }
 
         .leader-socials a:hover {
           color: var(--primary);
           border-color: var(--primary);
-          background: rgba(0, 240, 255, 0.05);
+          background: rgba(91, 33, 182, 0.03);
         }
 
         /* Roadmap Timeline */
@@ -345,8 +351,7 @@ const About = () => {
           left: 0;
           width: 100%;
           height: 2px;
-          background: rgba(0, 240, 255, 0.15);
-          box-shadow: 0 0 10px rgba(0, 240, 255, 0.1);
+          background: var(--border-glass);
         }
 
         .timeline-grid {
@@ -375,16 +380,15 @@ const About = () => {
           width: 16px;
           height: 16px;
           border-radius: 50%;
-          background: var(--primary);
-          box-shadow: 0 0 10px var(--primary);
+          background: var(--secondary);
           border: 3px solid var(--bg-deep);
         }
 
         .timeline-year {
-          font-family: var(--font-header);
+          font-family: var(--font-badge);
           font-weight: 700;
           font-size: 0.95rem;
-          color: var(--accent);
+          color: var(--primary);
           margin-top: 8px;
         }
 
@@ -392,6 +396,7 @@ const About = () => {
           padding: 24px;
           width: 100%;
           text-align: left;
+          background: #ffffff;
         }
 
         .timeline-card h4 {

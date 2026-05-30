@@ -291,27 +291,27 @@ const Careers = () => {
           min-height: 65vh;
           text-align: center;
           padding: 0 10%;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-          background: radial-gradient(circle at 50% 30%, rgba(var(--secondary-rgb), 0.05) 0%, transparent 60%);
+          border-bottom: 1px solid var(--border-glass);
+          background: radial-gradient(circle at 50% 30%, rgba(var(--secondary-rgb), 0.08) 0%, transparent 60%);
         }
-
+ 
         .header-text {
           max-width: 800px;
           margin-top: 60px;
         }
-
+ 
         .header-text h1 {
           font-size: 3.5rem;
           margin-bottom: 24px;
           line-height: 1.15;
         }
-
+ 
         .header-text p {
           font-size: 1.15rem;
           line-height: 1.7;
           color: var(--text-normal);
         }
-
+ 
         /* Culture grid */
         .culture-card {
           padding: 30px;
@@ -319,19 +319,19 @@ const Careers = () => {
           flex-direction: column;
           gap: 16px;
         }
-
+ 
         .culture-card h3 {
           font-size: 1.2rem;
           color: var(--primary);
         }
-
+ 
         .culture-card p {
           font-size: 0.88rem;
           line-height: 1.5;
           color: var(--text-normal);
           margin-bottom: 0;
         }
-
+ 
         /* Listings filter */
         .openings-filter-bar {
           display: flex;
@@ -341,6 +341,28 @@ const Careers = () => {
           flex-wrap: wrap;
         }
 
+        .filter-btn {
+          padding: 10px 20px;
+          background: #ffffff;
+          border: 1px solid var(--border-glass);
+          color: var(--text-normal);
+          font-family: var(--font-badge);
+          font-weight: 600;
+          font-size: 0.82rem;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+          border-radius: var(--radius-sm);
+          cursor: pointer;
+          transition: var(--transition-fast);
+          box-shadow: var(--shadow-premium);
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+          border-color: var(--primary);
+          color: var(--primary);
+          background: rgba(91, 33, 182, 0.03);
+        }
+ 
         .jobs-list-container {
           display: flex;
           flex-direction: column;
@@ -348,33 +370,33 @@ const Careers = () => {
           max-width: 900px;
           margin: 0 auto;
         }
-
+ 
         .job-row {
           padding: 30px 40px;
         }
-
+ 
         .job-row-main {
           display: flex;
           align-items: center;
           justify-content: space-between;
           gap: 30px;
         }
-
+ 
         .job-loc {
-          font-family: var(--font-header);
+          font-family: var(--font-badge);
           font-weight: 600;
           font-size: 0.75rem;
           text-transform: uppercase;
           letter-spacing: 0.5px;
           color: var(--accent);
         }
-
+ 
         .job-row h3 {
           font-size: 1.4rem;
           margin: 6px 0 10px 0;
           color: var(--text-bright);
         }
-
+ 
         .job-desc {
           font-size: 0.92rem;
           line-height: 1.5;
@@ -382,28 +404,42 @@ const Careers = () => {
           margin-bottom: 0;
           max-width: 550px;
         }
-
+ 
         /* Side-Drawer Details */
+        .modal-backdrop {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(15, 23, 42, 0.4);
+          backdrop-filter: blur(8px);
+          z-index: 150;
+        }
+
         .drawer-panel {
           width: 500px;
           max-width: 90%;
           height: 90vh;
           overflow: hidden;
-          background: var(--bg-deep);
+          background: #ffffff;
+          border: 1px solid var(--border-glass);
+          border-radius: var(--radius-md);
+          box-shadow: var(--shadow-premium-hover);
           padding: 40px 30px;
           position: relative;
         }
-
+ 
         .drawer-inner-scroll {
           height: 100%;
           overflow-y: auto;
           padding-right: 10px;
         }
-
+ 
         .drawer-inner-scroll::-webkit-scrollbar {
           width: 5px;
         }
-
+ 
         .role-highlight {
           display: inline-block;
           font-family: var(--font-header);
@@ -412,37 +448,37 @@ const Careers = () => {
           color: var(--primary);
           margin-top: 10px;
         }
-
+ 
         .role-sub {
           font-size: 0.85rem;
           color: var(--text-muted);
           margin-bottom: 24px;
         }
-
+ 
         .job-drawer-specs {
-          background: rgba(255, 255, 255, 0.02);
+          background: var(--bg-deep);
           border: 1px solid var(--border-glass);
           border-radius: var(--radius-sm);
           padding: 20px;
           margin-bottom: 24px;
         }
-
+ 
         .job-drawer-specs h5 {
           font-size: 0.9rem;
           color: var(--accent);
           margin-bottom: 6px;
         }
-
+ 
         .job-drawer-specs h5:nth-of-type(2) {
           margin-top: 16px;
         }
-
+ 
         .job-drawer-specs p {
           font-size: 0.82rem;
           line-height: 1.5;
           margin-bottom: 0;
         }
-
+ 
         .job-drawer-specs ul {
           list-style: square;
           padding-left: 20px;
@@ -450,48 +486,47 @@ const Careers = () => {
           flex-direction: column;
           gap: 6px;
         }
-
+ 
         .job-drawer-specs li {
           font-size: 0.8rem;
           color: var(--text-normal);
         }
-
+ 
         /* File Upload */
         .file-input {
           display: none;
         }
-
+ 
         .upload-btn-shell {
           width: 100%;
         }
-
+ 
         .progress-bar-shell {
           margin-top: 10px;
           display: flex;
           flex-direction: column;
           gap: 6px;
         }
-
+ 
         .bar-track {
           height: 6px;
-          background: rgba(255, 255, 255, 0.08);
+          background: rgba(15, 23, 42, 0.08);
           border-radius: 4px;
           overflow: hidden;
         }
-
+ 
         .bar-fill {
           height: 100%;
           background: var(--primary);
-          box-shadow: 0 0 6px var(--primary);
           transition: width 0.3s ease;
         }
-
+ 
         .percent-indicator {
           font-size: 0.72rem;
           color: var(--primary);
           font-weight: 500;
         }
-
+ 
         .upload-ready {
           font-size: 0.78rem;
           color: var(--primary);
@@ -499,19 +534,88 @@ const Careers = () => {
           margin-top: 8px;
           font-weight: 600;
         }
-
+ 
         .success-anim-container h3 {
           font-size: 1.8rem;
           color: var(--text-bright);
           margin-bottom: 12px;
         }
-
+ 
         .success-anim-container p {
           font-size: 1.05rem;
           max-width: 320px;
           color: var(--text-normal);
         }
 
+        .success-icon {
+          width: 50px;
+          height: 50px;
+          background: rgba(91, 33, 182, 0.1);
+          border: 2.5px solid var(--primary);
+          color: var(--primary);
+          border-radius: 50%;
+          font-weight: 700;
+          font-size: 1.5rem;
+          margin-bottom: 18px;
+        }
+
+        .modal-close-btn {
+          position: absolute;
+          top: 20px;
+          right: 20px;
+          background: none;
+          border: none;
+          color: var(--text-muted);
+          font-size: 1.1rem;
+          cursor: pointer;
+          transition: var(--transition-fast);
+          z-index: 10;
+        }
+ 
+        .modal-close-btn:hover {
+          color: var(--text-bright);
+        }
+
+        .careers-form {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+
+        .form-group {
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+        }
+
+        .form-group label {
+          font-family: var(--font-badge);
+          font-size: 0.8rem;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          color: var(--text-normal);
+        }
+
+        .form-group input, .form-group textarea {
+          padding: 10px 14px;
+          background: var(--bg-deep);
+          border: 1px solid var(--border-glass);
+          border-radius: var(--radius-sm);
+          color: var(--text-bright);
+          font-family: var(--font-body);
+          font-size: 0.9rem;
+          transition: var(--transition-fast);
+          width: 100%;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+          outline: none;
+          border-color: var(--primary);
+          background: #ffffff;
+          box-shadow: 0 0 0 2px rgba(91, 33, 182, 0.1);
+        }
+ 
         @media (max-width: 768px) {
           .careers-header h1 {
             font-size: 2.3rem;
