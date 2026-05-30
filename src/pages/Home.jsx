@@ -19,12 +19,12 @@ const Home = ({ setCurrentPage }) => {
   ];
 
   const solutions = [
-    { title: 'Enterprise AI Integration', desc: 'Tailored LLM deployment, vector database integration, and intelligent agent systems for internal business structures.' },
-    { title: 'Workflow Automation', desc: 'End-to-end process audits and software bot deployment to trigger workflows and remove manual tasks.' },
-    { title: 'Legacy Code Modernization', desc: 'Complete architecture migrations. Porting legacy VB6, ASP, or COBOL systems to React + Node + Cloud.' },
-    { title: 'Vertical SaaS Platforms', desc: 'Turnkey application models focused on specific niche industries like local medicine, recruiting, and commerce.' },
-    { title: 'Cloud DevOps Setup', desc: 'Kubernetes orchestration, serverless structures, and CI/CD pipelines configured for optimal scale.' },
-    { title: 'Enterprise AI APIs', desc: 'Lightning-fast API access points for immediate custom data extraction, semantic search, and summary tasks.' }
+    { title: 'Enterprise AI Integration', desc: 'Tailored LLM deployment, vector database integration, and intelligent agent systems for internal business structures.', image: '/assets/images/media__1780124122197.png' },
+    { title: 'Workflow Automation', desc: 'End-to-end process audits and software bot deployment to trigger workflows and remove manual tasks.', image: '/assets/images/media__1780124151119.png' },
+    { title: 'Legacy Code Modernization', desc: 'Complete architecture migrations. Porting legacy VB6, ASP, or COBOL systems to React + Node + Cloud.', image: '/assets/images/media__1780124170147.png' },
+    { title: 'Vertical SaaS Platforms', desc: 'Turnkey application models focused on specific niche industries like local medicine, recruiting, and commerce.', image: '/assets/images/media__1780122544888.png' },
+    { title: 'Cloud DevOps Setup', desc: 'Kubernetes orchestration, serverless structures, and CI/CD pipelines configured for optimal scale.', image: '/assets/images/media__1780122544913.png' },
+    { title: 'Enterprise AI APIs', desc: 'Lightning-fast API access points for immediate custom data extraction, semantic search, and summary tasks.', image: '/assets/images/media__1780123523716.png' }
   ];
 
   const industries = {
@@ -156,16 +156,22 @@ const Home = ({ setCurrentPage }) => {
         <div className="grid-container grid-3">
           {solutions.map((sol, idx) => (
             <div key={idx} className="glass-panel solution-card">
-              <div className="sol-icon-shell">
-                <svg viewBox="0 0 100 100" width="24" height="24">
-                  <polygon points="50,15 90,80 10,80" stroke="var(--primary)" strokeWidth="6" fill="none" />
-                </svg>
+              <div className="solution-card-img-shell">
+                <img src={sol.image} alt={sol.title} className="solution-card-img" />
+                <div className="solution-card-img-overlay" />
               </div>
-              <h3>{sol.title}</h3>
-              <p>{sol.desc}</p>
-              <button onClick={() => handleCTA('services')} className="learn-more-link">
-                Learn Details →
-              </button>
+              <div className="solution-card-content">
+                <div className="sol-icon-shell">
+                  <svg viewBox="0 0 100 100" width="16" height="16">
+                    <polygon points="50,15 90,80 10,80" stroke="var(--primary)" strokeWidth="6" fill="none" />
+                  </svg>
+                </div>
+                <h3>{sol.title}</h3>
+                <p>{sol.desc}</p>
+                <button onClick={() => handleCTA('services')} className="learn-more-link">
+                  Learn Details →
+                </button>
+              </div>
             </div>
           ))}
         </div>
@@ -526,20 +532,63 @@ const Home = ({ setCurrentPage }) => {
 
         /* Solutions Section */
         .solution-card {
-          padding: 40px 30px;
+          padding: 0;
           display: flex;
           flex-direction: column;
-          gap: 16px;
           background: #ffffff;
           box-shadow: var(--shadow-premium);
+          border-radius: var(--radius-md);
+          overflow: hidden;
+          transition: var(--transition-smooth);
+        }
+
+        .solution-card:hover {
+          transform: translateY(-4px);
+        }
+
+        .solution-card-img-shell {
+          width: 100%;
+          height: 200px;
+          position: relative;
+          overflow: hidden;
+          border-bottom: 1px solid var(--border-glass);
+        }
+
+        .solution-card-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: var(--transition-smooth);
+        }
+
+        .solution-card:hover .solution-card-img {
+          transform: scale(1.04);
+        }
+
+        .solution-card-img-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(to bottom, transparent 50%, rgba(15, 23, 42, 0.08));
+          pointer-events: none;
+        }
+
+        .solution-card-content {
+          padding: 30px;
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          flex-grow: 1;
         }
 
         .sol-icon-shell {
-          width: 44px;
-          height: 44px;
+          width: 32px;
+          height: 32px;
           background: rgba(91, 33, 182, 0.04);
           border: 1px solid rgba(91, 33, 182, 0.12);
-          border-radius: 8px;
+          border-radius: 6px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -554,7 +603,7 @@ const Home = ({ setCurrentPage }) => {
           font-size: 0.92rem;
           color: var(--text-normal);
           line-height: 1.6;
-          margin-bottom: 10px;
+          margin-bottom: 6px;
           flex-grow: 1;
         }
 
