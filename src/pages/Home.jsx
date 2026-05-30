@@ -19,12 +19,12 @@ const Home = ({ setCurrentPage }) => {
   ];
 
   const solutions = [
-    { title: 'Enterprise AI Integration', desc: 'Tailored LLM deployment, vector database integration, and intelligent agent systems for internal business structures.', image: '/assets/images/media__1780124122197.png' },
-    { title: 'Workflow Automation', desc: 'End-to-end process audits and software bot deployment to trigger workflows and remove manual tasks.', image: '/assets/images/media__1780124151119.png' },
-    { title: 'Legacy Code Modernization', desc: 'Complete architecture migrations. Porting legacy VB6, ASP, or COBOL systems to React + Node + Cloud.', image: '/assets/images/media__1780124170147.png' },
-    { title: 'Vertical SaaS Platforms', desc: 'Turnkey application models focused on specific niche industries like local medicine, recruiting, and commerce.', image: '/assets/images/media__1780122544888.png' },
-    { title: 'Cloud DevOps Setup', desc: 'Kubernetes orchestration, serverless structures, and CI/CD pipelines configured for optimal scale.', image: '/assets/images/media__1780122544913.png' },
-    { title: 'Enterprise AI APIs', desc: 'Lightning-fast API access points for immediate custom data extraction, semantic search, and summary tasks.', image: '/assets/images/media__1780123523716.png' }
+    { title: 'Enterprise AI Integration', desc: 'Tailored LLM deployment, vector database integration, and intelligent agent systems for internal business structures.', image: '/assets/images/media__1780124170147.png' },
+    { title: 'Workflow Automation', desc: 'End-to-end process audits and software bot deployment to trigger workflows and remove manual tasks.', image: '/assets/images/media__1780122544888.png' },
+    { title: 'Legacy Code Modernization', desc: 'Complete architecture migrations. Porting legacy VB6, ASP, or COBOL systems to React + Node + Cloud.', image: '/assets/images/media__1780122544913.png' },
+    { title: 'Vertical SaaS Platforms', desc: 'Turnkey application models focused on specific niche industries like local medicine, recruiting, and commerce.', image: '/assets/images/media__1780124583134.jpg' },
+    { title: 'Cloud DevOps Setup', desc: 'Kubernetes orchestration, serverless structures, and CI/CD pipelines configured for optimal scale.', image: '/assets/images/media__1780124585958.jpg' },
+    { title: 'Enterprise AI APIs', desc: 'Lightning-fast API access points for immediate custom data extraction, semantic search, and summary tasks.', image: '/assets/images/media__1780124647473.png' }
   ];
 
   const industries = {
@@ -161,11 +161,6 @@ const Home = ({ setCurrentPage }) => {
                 <div className="solution-card-img-overlay" />
               </div>
               <div className="solution-card-content">
-                <div className="sol-icon-shell">
-                  <svg viewBox="0 0 100 100" width="16" height="16">
-                    <polygon points="50,15 90,80 10,80" stroke="var(--primary)" strokeWidth="6" fill="none" />
-                  </svg>
-                </div>
                 <h3>{sol.title}</h3>
                 <p>{sol.desc}</p>
                 <button onClick={() => handleCTA('services')} className="learn-more-link">
