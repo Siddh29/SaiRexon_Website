@@ -82,6 +82,24 @@ const Home = ({ setCurrentPage }) => {
               Explore SaaS Products
             </button>
           </div>
+          
+          {/* Sexy UI/UX Credentials Stats Ribbon */}
+          <div className="hero-stats-ribbon glass-panel animate-fade-in">
+            <div className="stat-item">
+              <span className="stat-num">3+</span>
+              <span className="stat-label">Years of Experience</span>
+            </div>
+            <div className="stat-divider" />
+            <div className="stat-item">
+              <span className="stat-num">20+</span>
+              <span className="stat-label">Enterprise Consultancies</span>
+            </div>
+            <div className="stat-divider" />
+            <div className="stat-item">
+              <span className="stat-num">50+</span>
+              <span className="stat-label">Connected Modernizations</span>
+            </div>
+          </div>
         </div>
         <div className="hero-fade-bottom" />
       </section>
@@ -236,6 +254,25 @@ const Home = ({ setCurrentPage }) => {
         </div>
         <div className="ticker-container">
           <div className="ticker-wrapper">
+            {/* Original Set */}
+            <div className="ticker-card glass-panel">
+              <h4>Mumbai Clinic Pilot</h4>
+              <p>Behavioral health intake pipeline active. 98% booking automation efficiency.</p>
+            </div>
+            <div className="ticker-card glass-panel">
+              <h4>Pune Logistics Node</h4>
+              <p>E-commerce stock automation systems active. Footfall prediction accurate inside 91% bounds.</p>
+            </div>
+            <div className="ticker-card glass-panel">
+              <h4>Hyderabad Staffing Drive</h4>
+              <p>AI resume grading parser launched. Filtered 3,400+ entries for key IT conglomerates.</p>
+            </div>
+            <div className="ticker-card glass-panel">
+              <h4>Delhi B2B Core Upgrade</h4>
+              <p>Migrated legacy inventory data grids. 4x increase in system database responses.</p>
+            </div>
+            
+            {/* Duplicate Set for Seamless Infinite Looping */}
             <div className="ticker-card glass-panel">
               <h4>Mumbai Clinic Pilot</h4>
               <p>Behavioral health intake pipeline active. 98% booking automation efficiency.</p>
@@ -319,6 +356,55 @@ const Home = ({ setCurrentPage }) => {
           height: 100px;
           background: linear-gradient(to top, var(--bg-deep), transparent);
           z-index: 2;
+        }
+
+        /* Stats Ribbon */
+        .hero-stats-ribbon {
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          max-width: 800px;
+          margin: 40px auto 0 auto;
+          padding: 20px 40px;
+          background: #ffffff;
+          border: 1px solid var(--border-glass);
+          border-radius: var(--radius-md);
+          box-shadow: var(--shadow-premium);
+          gap: 20px;
+          z-index: 10;
+          position: relative;
+        }
+
+        .stat-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          flex: 1;
+        }
+
+        .stat-num {
+          font-family: var(--font-badge);
+          font-weight: 800;
+          font-size: 2.2rem;
+          color: var(--primary);
+          line-height: 1.1;
+        }
+
+        .stat-label {
+          font-family: var(--font-badge);
+          font-weight: 600;
+          font-size: 0.72rem;
+          color: var(--text-normal);
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          margin-top: 4px;
+          text-align: center;
+        }
+
+        .stat-divider {
+          width: 1px;
+          height: 40px;
+          background: var(--border-glass);
         }
 
         /* Overview Section */
@@ -754,6 +840,15 @@ const Home = ({ setCurrentPage }) => {
           .cta-btns {
             flex-direction: column;
             gap: 12px;
+          }
+          .hero-stats-ribbon {
+            flex-direction: column;
+            padding: 30px 20px;
+            gap: 20px;
+          }
+          .stat-divider {
+            width: 80%;
+            height: 1px;
           }
         }
       `}</style>

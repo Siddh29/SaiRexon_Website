@@ -63,6 +63,13 @@ const App = () => {
         <div className="glow-spot-2" />
         <div className="glow-spot-3" />
       </div>
+      
+      {/* Sexy UI/UX Editorial Background Geometric Circles */}
+      <div className="background-decorations">
+        <div className="bg-circle bg-circle-1" />
+        <div className="bg-circle bg-circle-2" />
+        <div className="bg-circle bg-circle-3" />
+      </div>
 
       {/* Shared Navigation */}
       <Navbar currentPage={currentPage} setCurrentPage={handlePageChange} />

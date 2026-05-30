@@ -8,10 +8,10 @@
   --font-body: 'Inter', sans-serif;
   --font-badge: 'Outfit', sans-serif;
 
-  /* Color Palette - Alabaster Cream & Deep Violet Theme (Luxury Editorial) */
-  --bg-deep: hsl(36, 20%, 97%);           /* Alabaster Warm White/Cream */
+  /* Color Palette - Cool Slate Greyish Light Theme (Luxury Editorial) */
+  --bg-deep: hsl(210, 18%, 95%);           /* Cool Slate Greyish Light Off-White */
   --bg-card: hsl(0, 0%, 100%);             /* Pure Paper White */
-  --bg-card-hover: hsl(36, 20%, 95%);
+  --bg-card-hover: hsl(210, 18%, 92%);
   
   --primary: hsl(263, 69%, 42%);          /* Luxurious Deep Violet */
   --primary-rgb: 91, 33, 182;
@@ -105,15 +105,17 @@ a {
   transition: var(--transition-fast);
 }
 
-/* Faint Dot Grid Background (Warm & Organic) */
+/* Premium Intersection Line Grid Background (Cool & Sexy Editorial) */
 .cyber-grid {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: radial-gradient(rgba(15, 23, 42, 0.02) 1px, transparent 1px);
-  background-size: 40px 40px;
+  background-size: 80px 80px;
+  background-image: 
+    linear-gradient(to right, rgba(15, 23, 42, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.015) 1px, transparent 1px);
   z-index: -2;
   pointer-events: none;
 }
@@ -405,3 +407,104 @@ a {
   border-color: rgba(221, 125, 98, 0.2);
   color: var(--accent);
 }
+
+/* ==========================================================================
+   SEXY UI/UX EDITORIAL BACKGROUND DECORATIONS & FLOATING CIRCLES
+   ========================================================================== */
+.background-decorations {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.bg-circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(91, 33, 182, 0.04);
+}
+
+.bg-circle-1 {
+  width: 480px;
+  height: 480px;
+  top: 10%;
+  left: -120px;
+  border-color: rgba(91, 33, 182, 0.04);
+  animation: rotateDecor 50s linear infinite;
+}
+
+.bg-circle-1::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  border-radius: 50%;
+  border: 1px dashed rgba(197, 168, 128, 0.05);
+}
+
+.bg-circle-2 {
+  width: 650px;
+  height: 650px;
+  bottom: 5%;
+  right: -150px;
+  border-color: rgba(197, 168, 128, 0.04);
+  animation: rotateDecor 75s linear infinite reverse;
+}
+
+.bg-circle-2::after {
+  content: '';
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  right: 30px;
+  bottom: 30px;
+  border-radius: 50%;
+  border: 1px dashed rgba(91, 33, 182, 0.05);
+}
+
+.bg-circle-3 {
+  width: 250px;
+  height: 250px;
+  top: 60%;
+  left: 45%;
+  border-color: rgba(221, 125, 98, 0.03);
+  animation: floatDecor 15s ease-in-out infinite alternate;
+}
+
+@keyframes rotateDecor {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes floatDecor {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(30px, -20px) scale(1.05); }
+}
+
+/* Enhancing Ambient Glow Spots with Drift Animations */
+@keyframes driftGlow1 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(8%, -6%) scale(1.05); }
+  100% { transform: translate(-5%, 8%) scale(0.95); }
+}
+
+@keyframes driftGlow2 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-7%, 8%) scale(1.08); }
+  100% { transform: translate(6%, -5%) scale(0.92); }
+}
+
+.glow-spot-1 {
+  animation: driftGlow1 22s infinite alternate ease-in-out;
+}
+
+.glow-spot-2 {
+  animation: driftGlow2 28s infinite alternate ease-in-out;
+}
+

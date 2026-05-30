@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Contact = () => {
   const [formState, setFormState] = useState({
@@ -37,6 +37,70 @@ const Contact = () => {
     }, 1500);
   };
 
+  // Real Leaflet Map Clean Initialization
+  useEffect(() => {
+    if (!window.L) return;
+ 
+    const container = document.getElementById('leaflet-contact-map');
+    if (!container) return;
+ 
+    const map = window.L.map('leaflet-contact-map', {
+      center: [17.5, 78.2],
+      zoom: 5,
+      scrollWheelZoom: false,
+      zoomControl: false
+    });
+ 
+    // Add Zoom Control at bottom right
+    window.L.control.zoom({ position: 'bottomright' }).addTo(map);
+ 
+    // High-End CartoDB Positron Premium Light/Grey Tile Layer
+    window.L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; OSM &copy; CARTO',
+      subdomains: 'abcd',
+      maxZoom: 20
+    }).addTo(map);
+ 
+    // Custom Styled Hub Markers
+    const createHubMarker = (lat, lon, title, desc, isHq = false) => {
+      const marker = window.L.circleMarker([lat, lon], {
+        color: isHq ? '#5B21B6' : '#DD7D62',
+        fillColor: isHq ? '#5B21B6' : '#DD7D62',
+        fillOpacity: 0.75,
+        radius: isHq ? 9 : 7,
+        weight: 2
+      }).addTo(map);
+      
+      const pulseRing = window.L.circle([lat, lon], {
+        color: isHq ? '#5B21B6' : '#DD7D62',
+        fillColor: 'transparent',
+        radius: isHq ? 60000 : 45000,
+        weight: 1.5,
+        opacity: 0.4
+      }).addTo(map);
+ 
+      marker.bindPopup(`
+        <div class="map-popup-card">
+          <strong style="font-family: var(--font-badge); color: var(--primary); font-size: 0.9rem;">${title}</strong>
+          <p style="font-size: 0.75rem; margin: 4px 0 0 0; color: var(--text-normal); line-height: 1.4;">${desc}</p>
+        </div>
+      `, { closeButton: false });
+      
+      // Auto-open HQ popup initially
+      if (isHq) {
+        marker.openPopup();
+      }
+    };
+ 
+    createHubMarker(17.4483, 78.3741, 'Hyderabad HQ', 'Level 7, Cyber Heights, HITEC City', true);
+    createHubMarker(19.0760, 72.8777, 'Mumbai Hub', 'BKC Corporate Integration Center', false);
+    createHubMarker(12.9716, 77.5946, 'Bengaluru Hub', 'Indiranagar Workforce Core', false);
+ 
+    return () => {
+      map.remove();
+    };
+  }, []);
+
   return (
     <div className="contact-page animate-fade-in">
       {/* Page Header */}
@@ -53,7 +117,7 @@ const Contact = () => {
       {/* Main Layout */}
       <section className="section-padding contact-main-section">
         <div className="grid-container grid-2">
-          {/* Contact Details & Interactive Vector Map */}
+          {/* Contact Details & Interactive Real Map */}
           <div className="contact-info-panel">
             <div className="contact-coordinates">
               <h3>Direct Coordinates</h3>
@@ -80,35 +144,11 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Custom Interactive Vector Map Simulation (High-Contrast Clean Sand/Slate Style!) */}
+            {/* Real Interactive Leaflet Map Container */}
             <div className="map-simulator glass-panel glowing-cyan">
               <h4>Active Operational Hubs</h4>
-              <div className="india-map-vector">
-                <svg viewBox="0 0 100 100" className="vector-svg">
-                  {/* Mock India Boundaries representation */}
-                  <path d="M35,15 Q40,5 50,15 T70,30 T60,60 T45,90 T30,70 T35,35 Z" fill="var(--bg-deep)" stroke="var(--border-glass)" strokeWidth="1" />
-                  
-                  {/* Radar Beacon 1: Mumbai */}
-                  <g className="beacon mumbaibeacon">
-                    <circle cx="36" cy="62" r="6" fill="none" stroke="var(--accent)" strokeWidth="1" className="radar-ring" />
-                    <circle cx="36" cy="62" r="3" fill="var(--accent)" />
-                    <text x="36" y="55" fill="var(--text-bright)" fontSize="4.5" fontWeight="600" textAnchor="middle">Mumbai Hub</text>
-                  </g>
-
-                  {/* Radar Beacon 2: Bengaluru */}
-                  <g className="beacon blrbeacon">
-                    <circle cx="48" cy="78" r="6" fill="none" stroke="var(--primary)" strokeWidth="1" className="radar-ring" />
-                    <circle cx="48" cy="78" r="3" fill="var(--primary)" />
-                    <text x="48" y="72" fill="var(--text-bright)" fontSize="4.5" fontWeight="600" textAnchor="middle">Bengaluru</text>
-                  </g>
-
-                  {/* Radar Beacon 3: Hyderabad */}
-                  <g className="beacon hydbeacon">
-                    <circle cx="50" cy="68" r="8" fill="none" stroke="var(--primary)" strokeWidth="1.5" className="radar-ring-main" />
-                    <circle cx="50" cy="68" r="4" fill="var(--primary)" />
-                    <text x="50" y="61" fill="var(--primary)" fontSize="5" fontWeight="700" textAnchor="middle">Hyderabad HQ</text>
-                  </g>
-                </svg>
+              <div className="real-leaflet-map-wrapper">
+                <div id="leaflet-contact-map" style={{ height: '300px', width: '100%', borderRadius: '8px' }}></div>
               </div>
             </div>
           </div>
@@ -301,35 +341,39 @@ const Contact = () => {
           letter-spacing: 0.05em;
         }
 
-        .india-map-vector {
+        .real-leaflet-map-wrapper {
           width: 100%;
-          max-width: 320px;
-          margin: 0 auto;
+          height: 300px;
+          border-radius: 8px;
+          overflow: hidden;
+          border: 1px solid var(--border-glass);
         }
-
-        .vector-svg {
+ 
+        #leaflet-contact-map {
           width: 100%;
           height: 100%;
+          background: var(--bg-deep);
         }
-
-        /* Radar animations on map */
-        @keyframes radarPulse {
-          0% { transform: scale(0.6); opacity: 0.8; }
-          100% { transform: scale(1.6); opacity: 0; }
+ 
+        /* Leaflet custom popup typography & styles */
+        .leaflet-popup-content-wrapper {
+          background: #ffffff !important;
+          border: 1px solid var(--border-glass);
+          box-shadow: var(--shadow-premium) !important;
+          border-radius: var(--radius-sm) !important;
+          padding: 6px 10px !important;
         }
-
-        .radar-ring {
-          transform-origin: center;
-          animation: radarPulse 2s infinite ease-out;
+ 
+        .leaflet-popup-tip {
+          background: #ffffff !important;
+          box-shadow: none !important;
+          border-left: 1px solid var(--border-glass);
+          border-down: 1px solid var(--border-glass);
         }
-
-        .radar-ring-main {
-          transform-origin: center;
-          animation: radarPulse 1.8s infinite ease-out;
+ 
+        .map-popup-card p {
+          margin: 0 !important;
         }
-
-        .blrbeacon .radar-ring { animation-delay: 0.4s; }
-        .mumbaibeacon .radar-ring { animation-delay: 0.8s; }
 
         /* Form styling */
         .contact-form-panel {
