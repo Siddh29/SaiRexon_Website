@@ -105,11 +105,11 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
 
         .navbar-container.scrolled {
           padding: 16px 10%;
-          background: rgba(250, 249, 246, 0.85);
+          background: rgba(3, 5, 20, 0.85);
           backdrop-filter: blur(20px) saturate(120%);
           -webkit-backdrop-filter: blur(20px) saturate(120%);
           border-bottom: 1px solid var(--border-glass);
-          box-shadow: 0 10px 30px -15px rgba(15, 23, 42, 0.05);
+          box-shadow: 0 10px 30px -15px rgba(3, 5, 20, 0.5);
         }
 
         .navbar-logo {
@@ -247,11 +247,11 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
           right: 0;
           width: 290px;
           height: 100vh;
-          background: rgba(255, 255, 255, 0.98);
+          background: rgba(8, 12, 36, 0.98);
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
           border-left: 1px solid var(--border-glass);
-          box-shadow: -10px 0 30px rgba(15, 23, 42, 0.05);
+          box-shadow: -10px 0 30px rgba(3, 5, 20, 0.5);
           z-index: 101;
           display: flex;
           align-items: center;

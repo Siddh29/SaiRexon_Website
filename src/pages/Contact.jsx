@@ -54,8 +54,8 @@ const Contact = () => {
     // Add Zoom Control at bottom right
     window.L.control.zoom({ position: 'bottomright' }).addTo(map);
  
-    // High-End CartoDB Positron Premium Light/Grey Tile Layer
-    window.L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    // High-End CartoDB Dark Matter Premium Dark Tile Layer
+    window.L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
       attribution: '&copy; OSM &copy; CARTO',
       subdomains: 'abcd',
       maxZoom: 20
