@@ -135,7 +135,18 @@ const InteractiveDashboard = () => {
             <div className="display-panel glass-panel">
               {scanning && (
                 <div className="sandbox-loader-container">
-                  <div className="scanning-radar"></div>
+                  <div className="radar-grid-box">
+                    <svg className="radar-grid-svg" viewBox="0 0 100 100" width="80" height="80">
+                      <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(99, 102, 241, 0.2)" strokeWidth="1" />
+                      <circle cx="50" cy="50" r="30" fill="none" stroke="rgba(99, 102, 241, 0.15)" strokeWidth="1" />
+                      <circle cx="50" cy="50" r="15" fill="none" stroke="rgba(99, 102, 241, 0.1)" strokeWidth="1" />
+                      <line x1="50" y1="5" x2="50" y2="95" stroke="rgba(99, 102, 241, 0.15)" strokeWidth="0.75" />
+                      <line x1="5" y1="50" x2="95" y2="50" stroke="rgba(99, 102, 241, 0.15)" strokeWidth="0.75" />
+                      <circle cx="50" cy="50" r="45" fill="none" stroke="#6366F1" strokeWidth="2" strokeDasharray="30 250" className="scanning-radar-sweep" />
+                      <circle cx="35" cy="30" r="2.5" fill="#10B981" className="radar-blip-1" />
+                      <circle cx="68" cy="62" r="3" fill="#D946EF" className="radar-blip-2" />
+                    </svg>
+                  </div>
                   <p className="pulse-text">Parsing PDF Vector Matrix... Extracting Skills...</p>
                 </div>
               )}
@@ -188,7 +199,11 @@ const InteractiveDashboard = () => {
             <div className="display-panel glass-panel">
               {diagnosing && (
                 <div className="sandbox-loader-container">
-                  <div className="heartbeat-pulse"></div>
+                  <div className="ecg-pulse-box">
+                    <svg className="ecg-pulse-svg" viewBox="0 0 160 50" width="120" height="40">
+                      <path d="M 10,25 H 40 L 48,5 L 56,45 L 64,20 L 70,30 L 75,25 H 150" fill="none" stroke="#10B981" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="ecg-pulse-line" />
+                    </svg>
+                  </div>
                   <p className="pulse-text">Compiling EHR logs... Correlating Vitals...</p>
                 </div>
               )}
@@ -438,22 +453,69 @@ const InteractiveDashboard = () => {
           animation: pulseGlow 1.5s infinite;
         }
 
-        /* Custom Loaders */
-        .scanning-radar {
-          width: 50px;
-          height: 50px;
-          border-radius: 50%;
-          border: 2px solid var(--primary);
-          border-top-color: transparent;
-          animation: spin 1s linear infinite;
+        /* Custom Loaders Overhaul */
+        .radar-grid-box {
+          position: relative;
+          width: 80px;
+          height: 80px;
+          overflow: visible;
         }
 
-        .heartbeat-pulse {
-          width: 60px;
+        .radar-grid-svg {
+          width: 100%;
+          height: 100%;
+        }
+
+        @keyframes radarSweep {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+
+        .scanning-radar-sweep {
+          transform-origin: 50px 50px;
+          animation: radarSweep 2.2s linear infinite;
+        }
+
+        @keyframes radarBlip {
+          0%, 100% { opacity: 0.2; transform: scale(0.9); }
+          50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .radar-blip-1 {
+          transform-origin: 35px 30px;
+          animation: radarBlip 1.5s ease-in-out infinite alternate;
+        }
+
+        .radar-blip-2 {
+          transform-origin: 68px 62px;
+          animation: radarBlip 2s ease-in-out infinite alternate-reverse;
+        }
+
+        /* ECG Heartbeat Loader */
+        .ecg-pulse-box {
+          width: 120px;
           height: 40px;
-          border-bottom: 2px dashed var(--accent);
-          position: relative;
-          animation: pulseGlow 1s infinite alternate;
+          overflow: visible;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .ecg-pulse-svg {
+          width: 100%;
+          height: 100%;
+        }
+
+        @keyframes ecgPulseDraw {
+          0% { stroke-dasharray: 180; stroke-dashoffset: 180; }
+          60% { stroke-dasharray: 180; stroke-dashoffset: 0; }
+          100% { stroke-dasharray: 180; stroke-dashoffset: -180; }
+        }
+
+        .ecg-pulse-line {
+          stroke-dasharray: 180;
+          stroke-dashoffset: 180;
+          animation: ecgPulseDraw 2.4s ease-in-out infinite;
         }
 
         .chart-bar-loader {
@@ -573,13 +635,14 @@ const InteractiveDashboard = () => {
 
         .bar {
           width: 20px;
-          background: rgba(15, 23, 42, 0.05);
+          background: rgba(255, 255, 255, 0.1);
           border-radius: 4px 4px 0 0;
-          transition: all 0.6s ease;
+          transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .bar.highlight {
           background: linear-gradient(to top, var(--primary), var(--secondary));
+          box-shadow: 0 0 12px rgba(99, 102, 241, 0.5);
         }
 
         .bar-column span {

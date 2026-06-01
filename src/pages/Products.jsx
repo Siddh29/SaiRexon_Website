@@ -36,8 +36,8 @@ const Products = () => {
             <div className="chart-preview-box">
               <span className="chart-label">Patient Rhythm Variance (Normal Range)</span>
               <div className="sine-wave-graphic">
-                <svg viewBox="0 0 100 30" className="sine-wave">
-                  <path d="M0,15 Q10,5 20,15 T40,15 T60,15 T80,15 T100,15" fill="none" stroke="var(--primary)" strokeWidth="2" />
+                <svg viewBox="0 0 100 30" className="sine-wave" width="100%" height="100%">
+                  <path d="M0,15 Q10,5 20,15 T40,15 T60,15 T80,15 T100,15" fill="none" stroke="var(--primary)" strokeWidth="2.5" strokeDasharray="25 8" className="flowing-biometric-path" />
                 </svg>
               </div>
             </div>
@@ -74,10 +74,10 @@ const Products = () => {
             </div>
             <div className="skill-fit-meter">
               <div className="fit-hdr"><span>Skill Match Index</span><span className="val">96.4%</span></div>
-              <div className="progress-track"><div className="progress-bar" style={{width: '96%'}} /></div>
+              <div className="progress-track"><div className="progress-bar product-progress-bar" style={{width: '96%'}} /></div>
             </div>
             <div className="extracted-tags">
-              <span className="tag">PyTorch</span><span className="tag">NLP</span><span className="tag">Transformers</span>
+              <span className="tag tag-float-1">PyTorch</span><span className="tag tag-float-2">NLP</span><span className="tag tag-float-3">Transformers</span>
             </div>
           </div>
         </div>
@@ -108,9 +108,9 @@ const Products = () => {
               <div className="vital"><span className="lbl">Demand Forecast</span><span className="val">+38% peak</span></div>
             </div>
             <div className="animated-bars">
-              <div className="col"><div className="bar" style={{height: '60px'}} /></div>
-              <div className="col"><div className="bar highlight" style={{height: '80px'}} /></div>
-              <div className="col"><div className="bar" style={{height: '50px'}} /></div>
+              <div className="col"><div className="bar mockup-col-1" style={{height: '60px'}} /></div>
+              <div className="col"><div className="bar highlight mockup-col-2" style={{height: '80px'}} /></div>
+              <div className="col"><div className="bar mockup-col-3" style={{height: '50px'}} /></div>
             </div>
             <p className="prediction-note">Suggested Dispatch: Send 40 packets to Sector 4 Hub immediately.</p>
           </div>
@@ -148,7 +148,7 @@ Auth: Bearer rex_live_948f
 }
 
 >> Response 200 OK (38ms)
->> Status: Modernization Active`}
+>> Status: Modernization Active`} <span className="api-cursor-blink-green" />
             </code></pre>
           </div>
         </div>
@@ -813,6 +813,61 @@ Auth: Bearer rex_live_948f
 
         .text-center {
           text-align: center;
+        }
+
+        /* High-Fidelity Mockup Animations */
+        @keyframes flowTelemetry {
+          to { stroke-dashoffset: -33; }
+        }
+        .flowing-biometric-path {
+          stroke-dasharray: 25 8;
+          animation: flowTelemetry 2.2s linear infinite;
+        }
+
+        @keyframes progressGlow {
+          0%, 100% { opacity: 0.8; box-shadow: 0 0 8px rgba(99, 102, 241, 0.4); }
+          50% { opacity: 1; box-shadow: 0 0 16px rgba(99, 102, 241, 0.8); }
+        }
+        .product-progress-bar {
+          animation: progressGlow 2.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes driftTag {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-4px); }
+        }
+        .tag-float-1 { animation: driftTag 3s ease-in-out infinite alternate; }
+        .tag-float-2 { animation: driftTag 3.4s ease-in-out infinite alternate-reverse; }
+        .tag-float-3 { animation: driftTag 3.2s ease-in-out infinite alternate; }
+
+        @keyframes chartPulse1 {
+          0%, 100% { height: 60px; }
+          50% { height: 95px; }
+        }
+        @keyframes chartPulse2 {
+          0%, 100% { height: 80px; }
+          50% { height: 50px; }
+        }
+        @keyframes chartPulse3 {
+          0%, 100% { height: 50px; }
+          50% { height: 85px; }
+        }
+        .mockup-col-1 { animation: chartPulse1 3.5s ease-in-out infinite alternate; }
+        .mockup-col-2 { animation: chartPulse2 4s ease-in-out infinite alternate; }
+        .mockup-col-3 { animation: chartPulse3 3.8s ease-in-out infinite alternate; }
+
+        @keyframes cursorBlink {
+          0%, 100% { opacity: 0; }
+          50% { opacity: 1; }
+        }
+        .api-cursor-blink-green {
+          display: inline-block;
+          width: 6px;
+          height: 12px;
+          background: var(--accent);
+          margin-left: 4px;
+          vertical-align: middle;
+          animation: cursorBlink 1s step-end infinite;
         }
 
         @media (max-width: 992px) {

@@ -5,10 +5,51 @@ const Home = ({ setCurrentPage }) => {
   const [activeIndustry, setActiveIndustry] = useState('healthcare');
 
   const overviewItems = [
-    { title: 'AI Infrastructure', desc: 'Pre-trained models and deep API layers engineered for instant deployment into enterprise logic.' },
-    { title: 'SaaS Ecosystem', desc: 'Custom vertical platforms tailored specifically to automate core clinic, workspace, and retail store tasks.' },
-    { title: 'Automation Engines', desc: 'Eradicate manual operational friction. Deploy software agents that execute processes flawlessly.' },
-    { title: 'Legacy Modernization', desc: 'Migrate archaic database structures and monolothic architectures onto highly scalable cloud nets.' }
+    { 
+      title: 'AI Infrastructure', 
+      desc: 'Pre-trained models and deep API layers engineered for instant deployment into enterprise logic.',
+      icon: (
+        <svg className="overview-icon text-indigo" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <circle cx="12" cy="5" r="3" className="icon-pulse-node" />
+          <circle cx="5" cy="19" r="3" />
+          <circle cx="19" cy="19" r="3" />
+          <line x1="12" y1="8" x2="6.5" y2="16.5" className="flow-dash-line" />
+          <line x1="12" y1="8" x2="17.5" y2="16.5" className="flow-dash-line" />
+          <line x1="8" y1="19" x2="16" y2="19" className="flow-dash-line" />
+        </svg>
+      )
+    },
+    { 
+      title: 'SaaS Ecosystem', 
+      desc: 'Custom vertical platforms tailored specifically to automate core clinic, workspace, and retail store tasks.',
+      icon: (
+        <svg className="overview-icon text-fuchsia" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <rect x="3" y="3" width="18" height="18" rx="2" />
+          <path d="M3 9h18M9 21V9" />
+          <circle cx="15" cy="15" r="2.5" className="spin-gear" />
+        </svg>
+      )
+    },
+    { 
+      title: 'Automation Engines', 
+      desc: 'Eradicate manual operational friction. Deploy software agents that execute processes flawlessly.',
+      icon: (
+        <svg className="overview-icon text-emerald" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2" className="draw-flow-path" />
+        </svg>
+      )
+    },
+    { 
+      title: 'Legacy Modernization', 
+      desc: 'Migrate archaic database structures and monolothic architectures onto highly scalable cloud nets.',
+      icon: (
+        <svg className="overview-icon text-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M12 22v-6M12 11V6M12 2v2" />
+          <path d="M17 14.5a5 5 0 0 1-5 5 5 5 0 0 1-5-5" strokeDasharray="3 3" />
+          <path d="M17 9.5a5 5 0 0 0-5-5 5 5 0 0 0-5 5" />
+        </svg>
+      )
+    }
   ];
 
   const problemSolutions = [
@@ -64,40 +105,185 @@ const Home = ({ setCurrentPage }) => {
       {/* Hero Section */}
       <section className="hero-section flex-center">
         <ParticlesBg />
-        <div className="hero-content">
-          <span className="badge cyan">India's Next Digital Era</span>
-          <h1>
-            AI-Powered Enterprise Modernization for <br />
-            <span className="text-gradient-cyan">India's Emerging Markets</span>
-          </h1>
-          <p className="hero-subtext">
-            SaiRexon Technologies builds custom AI infrastructure, Vertical SaaS platforms, and enterprise modernization networks. We empower SMEs and enterprise giants to scale with supreme intelligence.
-          </p>
-          <div className="hero-ctas">
-            <button onClick={() => handleCTA('consultation')} className="btn-primary">
-              Book Free Consultation
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-            </button>
-            <button onClick={() => handleCTA('products')} className="btn-secondary">
-              Explore SaaS Products
-            </button>
+        <div className="hero-grid">
+          <div className="hero-left">
+            <span className="badge cyan">India's Next Digital Era</span>
+            <h1>
+              AI-Powered Enterprise Modernization for <br />
+              <span className="text-gradient-cyan">India's Emerging Markets</span>
+            </h1>
+            <p className="hero-subtext">
+              SaiRexon Technologies builds custom AI infrastructure, Vertical SaaS platforms, and enterprise modernization networks. We empower SMEs and enterprise giants to scale with supreme intelligence.
+            </p>
+            <div className="hero-ctas">
+              <button onClick={() => handleCTA('consultation')} className="btn-primary">
+                Book Free Consultation
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </button>
+              <button onClick={() => handleCTA('products')} className="btn-secondary">
+                Explore SaaS Products
+              </button>
+            </div>
+            
+            {/* Sexy UI/UX Credentials Stats Ribbon */}
+            <div className="hero-stats-ribbon glass-panel animate-fade-in">
+              <div className="stat-item">
+                <span className="stat-num">3+</span>
+                <span className="stat-label">Years of Experience</span>
+              </div>
+              <div className="stat-divider" />
+              <div className="stat-item">
+                <span className="stat-num">20+</span>
+                <span className="stat-label">Enterprise Consultancies</span>
+              </div>
+              <div className="stat-divider" />
+              <div className="stat-item">
+                <span className="stat-num">50+</span>
+                <span className="stat-label">Connected Modernizations</span>
+              </div>
+            </div>
           </div>
-          
-          {/* Sexy UI/UX Credentials Stats Ribbon */}
-          <div className="hero-stats-ribbon glass-panel animate-fade-in">
-            <div className="stat-item">
-              <span className="stat-num">3+</span>
-              <span className="stat-label">Years of Experience</span>
-            </div>
-            <div className="stat-divider" />
-            <div className="stat-item">
-              <span className="stat-num">20+</span>
-              <span className="stat-label">Enterprise Consultancies</span>
-            </div>
-            <div className="stat-divider" />
-            <div className="stat-item">
-              <span className="stat-num">50+</span>
-              <span className="stat-label">Connected Modernizations</span>
+
+          <div className="hero-right flex-center">
+            <div className="automation-engine-container">
+              <svg className="automation-engine-svg" viewBox="0 0 500 500" width="100%" height="100%">
+                <defs>
+                  {/* Linear & Radial Gradients for Neon Glows */}
+                  <radialGradient id="core-glow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="#6366F1" stopOpacity="0.4" />
+                    <stop offset="60%" stopColor="#D946EF" stopOpacity="0.1" />
+                    <stop offset="100%" stopColor="transparent" stopOpacity="0" />
+                  </radialGradient>
+                  <linearGradient id="purple-cyan" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#6366F1" />
+                    <stop offset="100%" stopColor="#10B981" />
+                  </linearGradient>
+                  <linearGradient id="fuchsia-indigo" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#D946EF" />
+                    <stop offset="100%" stopColor="#6366F1" />
+                  </linearGradient>
+                  <linearGradient id="emerald-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#10B981" />
+                    <stop offset="100%" stopColor="#6366F1" />
+                  </linearGradient>
+                  
+                  {/* Glow Filters for Neon Effects */}
+                  <filter id="neon-glow-indigo" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="8" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                  <filter id="neon-glow-fuchsia" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="6" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                </defs>
+
+                {/* Ambient Glows */}
+                <circle cx="250" cy="250" r="180" fill="url(#core-glow)" />
+
+                {/* Flow Connection Lines (Glowing Dashed Paths) */}
+                {/* Top-Left Widget Connector */}
+                <path d="M 250,250 Q 150,180 90,110" fill="none" stroke="rgba(99, 102, 241, 0.2)" strokeWidth="1.5" />
+                <path d="M 250,250 Q 150,180 90,110" fill="none" stroke="#6366F1" strokeWidth="2" strokeDasharray="6 12" className="connector-flow-path" />
+
+                {/* Top-Right Widget Connector */}
+                <path d="M 250,250 Q 360,180 410,110" fill="none" stroke="rgba(217, 70, 239, 0.2)" strokeWidth="1.5" />
+                <path d="M 250,250 Q 360,180 410,110" fill="none" stroke="#D946EF" strokeWidth="2" strokeDasharray="6 12" className="connector-flow-path-reverse" />
+
+                {/* Bottom-Left Widget Connector */}
+                <path d="M 250,250 Q 150,320 90,390" fill="none" stroke="rgba(16, 185, 129, 0.2)" strokeWidth="1.5" />
+                <path d="M 250,250 Q 150,320 90,390" fill="none" stroke="#10B981" strokeWidth="2" strokeDasharray="6 12" className="connector-flow-path" />
+
+                {/* Bottom-Right Widget Connector */}
+                <path d="M 250,250 Q 350,320 410,390" fill="none" stroke="rgba(99, 102, 241, 0.2)" strokeWidth="1.5" />
+                <path d="M 250,250 Q 350,320 410,390" fill="none" stroke="#6366F1" strokeWidth="2" strokeDasharray="6 12" className="connector-flow-path-reverse" />
+
+                {/* Concentric System Rings */}
+                <circle cx="250" cy="250" r="140" fill="none" stroke="rgba(99, 102, 241, 0.12)" strokeWidth="1" />
+                <circle cx="250" cy="250" r="140" fill="none" stroke="url(#purple-cyan)" strokeWidth="1.5" strokeDasharray="25 35 10 45" className="concentric-ring-cw" />
+                
+                <circle cx="250" cy="250" r="110" fill="none" stroke="rgba(217, 70, 239, 0.1)" strokeWidth="1" />
+                <circle cx="250" cy="250" r="110" fill="none" stroke="url(#fuchsia-indigo)" strokeWidth="1.5" strokeDasharray="15 20 40 25" className="concentric-ring-ccw" />
+
+                <circle cx="250" cy="250" r="80" fill="none" stroke="rgba(16, 185, 129, 0.08)" strokeWidth="1" />
+                <circle cx="250" cy="250" r="80" fill="none" stroke="url(#emerald-glow)" strokeWidth="2" strokeDasharray="30 30" className="concentric-ring-cw-fast" />
+
+                {/* Pulsing Core Chip */}
+                <g className="pulsing-core-node">
+                  <circle cx="250" cy="250" r="30" fill="#0D0E25" stroke="rgba(99, 102, 241, 0.6)" strokeWidth="2" filter="url(#neon-glow-indigo)" />
+                  <rect x="238" y="238" width="24" height="24" rx="4" fill="url(#fuchsia-indigo)" className="core-chip-glow" />
+                  {/* Circuit lines protruding from chip */}
+                  <line x1="250" y1="220" x2="250" y2="230" stroke="#6366F1" strokeWidth="1.5" />
+                  <line x1="250" y1="270" x2="250" y2="280" stroke="#6366F1" strokeWidth="1.5" />
+                  <line x1="220" y1="250" x2="230" y2="250" stroke="#6366F1" strokeWidth="1.5" />
+                  <line x1="270" y1="250" x2="280" y2="250" stroke="#6366F1" strokeWidth="1.5" />
+                </g>
+
+                {/* ==================== WIDGET 1: LIVE ANALYTICS ==================== */}
+                <g className="drifting-widget-t1" style={{ transformOrigin: '90px 110px' }}>
+                  {/* Widget Card Base (Glassmorphic) */}
+                  <rect x="20" y="50" width="140" height="90" rx="10" fill="rgba(8, 12, 36, 0.85)" stroke="rgba(99, 102, 241, 0.25)" strokeWidth="1.5" filter="url(#neon-glow-indigo)" />
+                  {/* Title Bar */}
+                  <rect x="20" y="50" width="140" height="22" rx="10" fill="rgba(99, 102, 241, 0.15)" />
+                  <circle cx="32" cy="61" r="3" fill="#ef4444" />
+                  <circle cx="40" cy="61" r="3" fill="#f59e0b" />
+                  <circle cx="48" cy="61" r="3" fill="#10b981" />
+                  <text x="60" y="65" fill="#94A3B8" fontSize="8" fontFamily="var(--font-badge)" fontWeight="600" letterSpacing="0.05em">LIVE STATS</text>
+                  
+                  {/* Chart Graphic inside widget */}
+                  <path d="M 35,115 L 55,100 L 75,110 L 95,85 L 115,95 L 135,75" fill="none" stroke="#6366F1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M 35,115 L 55,100 L 75,110 L 95,85 L 115,95 L 135,75 L 135,120 L 35,120 Z" fill="url(#core-glow)" opacity="0.4" />
+                  <circle cx="135" cy="75" r="3.5" fill="#10B981" className="pulsing-data-dot" />
+                  <text x="35" y="130" fill="#64748B" fontSize="6" fontFamily="var(--font-badge)">09:00</text>
+                  <text x="120" y="130" fill="#64748B" fontSize="6" fontFamily="var(--font-badge)">ACTIVE</text>
+                </g>
+
+                {/* ==================== WIDGET 2: WORKFORCE MATCH ==================== */}
+                <g className="drifting-widget-t2" style={{ transformOrigin: '410px 110px' }}>
+                  <rect x="340" y="50" width="130" height="90" rx="10" fill="rgba(8, 12, 36, 0.85)" stroke="rgba(217, 70, 239, 0.25)" strokeWidth="1.5" filter="url(#neon-glow-fuchsia)" />
+                  <rect x="340" y="50" width="130" height="22" rx="10" fill="rgba(217, 70, 239, 0.15)" />
+                  <text x="355" y="64" fill="#E2E8F0" fontSize="8" fontFamily="var(--font-badge)" fontWeight="700" letterSpacing="0.05em">AI RANKER</text>
+                  
+                  {/* Dial gauge */}
+                  <circle cx="405" cy="102" r="22" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="4" />
+                  <circle cx="405" cy="102" r="22" fill="none" stroke="url(#fuchsia-indigo)" strokeWidth="4" strokeDasharray="100 138" strokeLinecap="round" className="gauge-meter-flow" />
+                  <text x="405" y="106" fill="#FFFFFF" fontSize="11" fontFamily="var(--font-badge)" fontWeight="800" textAnchor="middle">98%</text>
+                  <text x="405" y="132" fill="#94A3B8" fontSize="6" fontFamily="var(--font-badge)" textAnchor="middle" letterSpacing="0.02em">TALENT ALIGNMENT</text>
+                </g>
+
+                {/* ==================== WIDGET 3: CLINIC ECG RADAR ==================== */}
+                <g className="drifting-widget-t3" style={{ transformOrigin: '90px 390px' }}>
+                  <rect x="25" y="340" width="135" height="90" rx="10" fill="rgba(8, 12, 36, 0.85)" stroke="rgba(16, 185, 129, 0.25)" strokeWidth="1.5" />
+                  <rect x="25" y="340" width="135" height="22" rx="10" fill="rgba(16, 185, 129, 0.15)" />
+                  <text x="40" y="354" fill="#10B981" fontSize="8" fontFamily="var(--font-badge)" fontWeight="700" letterSpacing="0.05em">EHR SYNC</text>
+                  <circle cx="140" cy="351" r="3" fill="#10B981" className="core-chip-glow" />
+
+                  {/* ECG Line vector */}
+                  <path d="M 35,395 H 55 L 63,375 L 71,415 L 78,390 L 83,400 L 88,395 H 150" fill="none" stroke="#10B981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ecg-radar-path" />
+                  <text x="35" y="420" fill="#CBD5E1" fontSize="8" fontFamily="var(--font-body)" fontWeight="500">Normal Rhythm</text>
+                </g>
+
+                {/* ==================== WIDGET 4: API CODE SHELL ==================== */}
+                <g className="drifting-widget-t4" style={{ transformOrigin: '410px 390px' }}>
+                  <rect x="335" y="340" width="140" height="90" rx="10" fill="rgba(8, 12, 36, 0.85)" stroke="rgba(99, 102, 241, 0.25)" strokeWidth="1.5" />
+                  <rect x="335" y="340" width="140" height="22" rx="10" fill="rgba(15, 23, 42, 0.5)" />
+                  <circle cx="347" cy="351" r="3" fill="#94A3B8" />
+                  <circle cx="355" cy="351" r="3" fill="#94A3B8" />
+                  <text x="367" y="354" fill="#94A3B8" fontSize="7" fontFamily="monospace">sairexon_api.sh</text>
+
+                  {/* Monospace Code Lines */}
+                  <text x="345" y="380" fill="#F472B6" fontSize="6.5" fontFamily="monospace">POST <tspan fill="#38BDF8">/v1/modernize</tspan></text>
+                  <text x="345" y="394" fill="#A78BFA" fontSize="6.5" fontFamily="monospace">{"{"} <tspan fill="#34D399">"sync"</tspan>: <tspan fill="#F59E0B">true</tspan> {"}"}</text>
+                  <text x="345" y="408" fill="#10B981" fontSize="6.5" fontFamily="monospace">&gt;&gt; HTTP 200 OK [32ms]</text>
+                  <line x1="432" y1="400" x2="432" y2="408" stroke="#6366F1" strokeWidth="1.5" className="api-cursor-blink" />
+                </g>
+              </svg>
             </div>
           </div>
         </div>
@@ -115,6 +301,7 @@ const Home = ({ setCurrentPage }) => {
           {overviewItems.map((item, idx) => (
             <div key={idx} className="glass-panel overview-card">
               <div className="card-number">0{idx + 1}</div>
+              <div className="overview-icon-wrapper">{item.icon}</div>
               <h3>{item.title}</h3>
               <p>{item.desc}</p>
             </div>
@@ -309,26 +496,35 @@ const Home = ({ setCurrentPage }) => {
           position: relative;
         }
 
-        /* Hero */
+        /* Hero Grid Overhaul */
         .hero-section {
-          height: 90vh;
-          text-align: center;
-          padding: 0 10%;
+          min-height: 95vh;
+          padding: 120px 10% 80px 10%;
           position: relative;
           overflow: hidden;
-          flex-direction: column;
           background: radial-gradient(circle at 50% 30%, rgba(var(--secondary-rgb), 0.1) 0%, transparent 60%);
         }
 
-        .hero-content {
-          max-width: 900px;
+        .hero-grid {
+          display: grid;
+          grid-template-columns: 1.2fr 0.8fr;
+          align-items: center;
+          gap: 50px;
+          width: 100%;
+          max-width: 1200px;
           z-index: 10;
-          margin-top: 60px;
+          text-align: left;
         }
 
-        .hero-content h1 {
-          font-size: 3.5rem;
-          line-height: 1.15;
+        .hero-left {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .hero-left h1 {
+          font-size: 3.6rem;
+          line-height: 1.12;
           margin-bottom: 24px;
           letter-spacing: -1px;
         }
@@ -337,14 +533,14 @@ const Home = ({ setCurrentPage }) => {
           font-size: 1.15rem;
           color: var(--text-normal);
           line-height: 1.62;
-          max-width: 760px;
-          margin: 0 auto 40px auto;
+          max-width: 700px;
+          margin: 0 0 35px 0;
         }
 
         .hero-ctas {
           display: flex;
           gap: 20px;
-          justify-content: center;
+          justify-content: flex-start;
         }
 
         .hero-fade-bottom {
@@ -363,7 +559,7 @@ const Home = ({ setCurrentPage }) => {
           align-items: center;
           justify-content: space-around;
           max-width: 800px;
-          margin: 40px auto 0 auto;
+          margin: 45px 0 0 0;
           padding: 20px 40px;
           background: #ffffff;
           border: 1px solid var(--border-glass);
@@ -372,6 +568,7 @@ const Home = ({ setCurrentPage }) => {
           gap: 20px;
           z-index: 10;
           position: relative;
+          width: 100%;
         }
 
         .stat-item {
@@ -404,6 +601,188 @@ const Home = ({ setCurrentPage }) => {
           width: 1px;
           height: 40px;
           background: var(--border-glass);
+        }
+
+        /* Hero Right: SVG Automation Engine */
+        .hero-right {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          min-height: 450px;
+          z-index: 10;
+        }
+
+        .automation-engine-container {
+          width: 100%;
+          max-width: 480px;
+          aspect-ratio: 1;
+          position: relative;
+        }
+
+        .automation-engine-svg {
+          width: 100%;
+          height: 100%;
+          overflow: visible;
+        }
+
+        /* Concentric Ring Rotations */
+        @keyframes spinCw {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        @keyframes spinCcw {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(-360deg); }
+        }
+
+        .concentric-ring-cw {
+          transform-origin: 250px 250px;
+          animation: spinCw 30s linear infinite;
+        }
+        .concentric-ring-ccw {
+          transform-origin: 250px 250px;
+          animation: spinCcw 24s linear infinite;
+        }
+        .concentric-ring-cw-fast {
+          transform-origin: 250px 250px;
+          animation: spinCw 18s linear infinite;
+        }
+
+        /* Pulsing Core Chip */
+        @keyframes pulseGlowCore {
+          0%, 100% {
+            transform: scale(1);
+            opacity: 0.85;
+            filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.4));
+          }
+          50% {
+            transform: scale(1.06);
+            opacity: 1;
+            filter: drop-shadow(0 0 20px rgba(217, 70, 239, 0.7));
+          }
+        }
+        .pulsing-core-node {
+          transform-origin: 250px 250px;
+          animation: pulseGlowCore 4s ease-in-out infinite;
+        }
+        .core-chip-glow {
+          animation: pulseGlow 2s ease-in-out infinite alternate;
+        }
+
+        /* Connector Flow Dash Wires */
+        @keyframes flowDash {
+          to { stroke-dashoffset: -40; }
+        }
+        @keyframes flowDashReverse {
+          to { stroke-dashoffset: 40; }
+        }
+        .connector-flow-path {
+          animation: flowDash 1.5s linear infinite;
+        }
+        .connector-flow-path-reverse {
+          animation: flowDashReverse 1.5s linear infinite;
+        }
+
+        /* Drifting Widget Panels */
+        @keyframes driftW1 {
+          0%, 100% { transform: translateY(0px) translateX(0px); }
+          50% { transform: translateY(-8px) translateX(4px); }
+        }
+        @keyframes driftW2 {
+          0%, 100% { transform: translateY(0px) translateX(0px); }
+          50% { transform: translateY(6px) translateX(-5px); }
+        }
+        @keyframes driftW3 {
+          0%, 100% { transform: translateY(0px) translateX(0px); }
+          50% { transform: translateY(-7px) translateX(-3px); }
+        }
+        @keyframes driftW4 {
+          0%, 100% { transform: translateY(0px) translateX(0px); }
+          50% { transform: translateY(8px) translateX(5px); }
+        }
+
+        .drifting-widget-t1 { animation: driftW1 6s ease-in-out infinite; transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer; }
+        .drifting-widget-t2 { animation: driftW2 7s ease-in-out infinite; transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer; }
+        .drifting-widget-t3 { animation: driftW3 6.5s ease-in-out infinite; transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer; }
+        .drifting-widget-t4 { animation: driftW4 7.5s ease-in-out infinite; transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer; }
+
+        .drifting-widget-t1:hover, .drifting-widget-t2:hover, .drifting-widget-t3:hover, .drifting-widget-t4:hover {
+          transform: scale(1.04) !important;
+        }
+
+        .pulsing-data-dot {
+          animation: pulseGlow 1.5s ease-in-out infinite alternate;
+        }
+
+        /* ECG Path simulation */
+        @keyframes ecgDraw {
+          0% { stroke-dashoffset: 160; }
+          70% { stroke-dashoffset: 0; }
+          100% { stroke-dashoffset: 0; }
+        }
+        .ecg-radar-path {
+          stroke-dasharray: 160;
+          stroke-dashoffset: 160;
+          animation: ecgDraw 3.5s ease-in-out infinite;
+        }
+
+        /* API Blink cursor */
+        @keyframes cursorBlink {
+          0%, 100% { opacity: 0; }
+          50% { opacity: 1; }
+        }
+        .api-cursor-blink {
+          animation: cursorBlink 1s step-end infinite;
+        }
+
+        /* Company Overview Micro-Illustrations */
+        .overview-icon-wrapper {
+          margin-bottom: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          height: 44px;
+        }
+
+        .overview-icon {
+          width: 38px;
+          height: 38px;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+          transition: transform 0.3s ease;
+        }
+
+        .overview-card:hover .overview-icon {
+          transform: scale(1.1) translateY(-2px);
+        }
+
+        .overview-icon.text-indigo { color: var(--primary); }
+        .overview-icon.text-fuchsia { color: var(--secondary); }
+        .overview-icon.text-emerald { color: var(--accent); }
+        .overview-icon.text-cyan { color: #06B6D4; }
+
+        .flow-dash-line {
+          stroke-dasharray: 4 4;
+          animation: flowDashLine 2s linear infinite;
+        }
+        @keyframes flowDashLine {
+          to { stroke-dashoffset: -8; }
+        }
+
+        .spin-gear {
+          transform-origin: 15px 15px;
+          animation: spinCw 12s linear infinite;
+        }
+
+        @keyframes drawPath {
+          0% { stroke-dasharray: 60; stroke-dashoffset: 60; }
+          60% { stroke-dasharray: 60; stroke-dashoffset: 0; }
+          100% { stroke-dasharray: 60; stroke-dashoffset: 0; }
+        }
+        .draw-flow-path {
+          stroke-dasharray: 60;
+          stroke-dashoffset: 60;
+          animation: drawPath 3s ease-in-out infinite;
         }
 
         /* Overview Section */
@@ -830,8 +1209,36 @@ const Home = ({ setCurrentPage }) => {
         }
 
         @media (max-width: 992px) {
-          .hero-content h1 {
-            font-size: 3rem;
+          .hero-grid {
+            grid-template-columns: 1fr;
+            text-align: center;
+            gap: 40px;
+            margin-top: 20px;
+          }
+          .hero-left {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+          .hero-left h1 {
+            font-size: 2.8rem;
+            text-align: center;
+          }
+          .hero-subtext {
+            margin: 0 auto 30px auto;
+            text-align: center;
+          }
+          .hero-ctas {
+            justify-content: center;
+            width: 100%;
+          }
+          .hero-stats-ribbon {
+            margin: 40px auto 0 auto;
+          }
+          .hero-right {
+            min-height: 400px;
+            display: flex;
+            justify-content: center;
           }
           .industry-switcher-container {
             grid-template-columns: 1fr;
@@ -848,7 +1255,7 @@ const Home = ({ setCurrentPage }) => {
         }
 
         @media (max-width: 768px) {
-          .hero-content h1 {
+          .hero-left h1 {
             font-size: 2.2rem;
           }
           .hero-subtext {
@@ -882,6 +1289,9 @@ const Home = ({ setCurrentPage }) => {
           .stat-divider {
             width: 80%;
             height: 1px;
+          }
+          .hero-right {
+            min-height: 320px;
           }
         }
       `}</style>
